@@ -1,4 +1,13 @@
-baseURL = "http://example.org/"
+baseURL = "https://cuidezhu.github.io/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "老崔博客"
 theme = "elephants"
+
+[author]
+  primary = "Dezhu Cui"
+
+[params]
+  Description = "Reading, Blog, Thought"
+  
+[permalinks]
+  post = "/:year/:slug"

@@ -2,7 +2,7 @@
 * @Author: cuidezhu
 * @Date:   2018-04-10 00:54:25
 * @Last Modified by:   cuidezhu
-* @Last Modified time: 2018-04-10 02:43:36
+* @Last Modified time: 2018-04-10 03:48:06
 */
 
 body {
@@ -90,4 +90,13 @@ body {
 
 .blog-post-content {
   padding: 4% 6%;
+}
+
+@media (max-width: 991.98px) {
+  .container {
+    margin: 0;
+  }
+  .archive-item-date, .blog-post-date {
+    float: none;
+  }
 }

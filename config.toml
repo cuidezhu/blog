@@ -1,13 +1,30 @@
-baseURL = "https://cuidezhu.github.io/"
+baseurl = "http://ijs.me"
 languageCode = "en-us"
 title = "老崔博客"
 theme = "elephants"
+googleAnalytics = ""
+disqusShortname = ""
 
-[author]
-  primary = "Dezhu Cui"
+[permalinks]
+  post = "/:year/:month/:day/:title/"
+  page = "/:title/"
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+[[menu.main]]
+  name = "GitHub"
+  url = ""
+[[menu.main]]
+  name = "Twitter"
+  url = ""
 
 [params]
-  Description = "Reading, Blog, Thought"
-  
-[permalinks]
-  post = "/:year/:slug"
+  sitename = "老崔博客"
+  description = ""
+
+  [params.logo]
+  url = "logo.png"
+  width = 50
+  height = 50
+  alt = "Logo"

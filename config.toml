@@ -1,12 +1,11 @@
 baseurl = "http://ijs.me"
 languageCode = "en-us"
 title = "老崔博客"
-theme = "elephants"
 googleAnalytics = ""
 disqusShortname = ""
 
 [permalinks]
-  post = "/:year/:month/:day/:title/"
+  post = "/:year/:month/:day/:slug/"
   page = "/:title/"
 
 [[menu.main]]
@@ -21,6 +20,7 @@ disqusShortname = ""
 
 [params]
   sitename = "老崔博客"
+  subtitle = "重剑无锋，大巧不工"
   description = ""
 
   [params.logo]

@@ -6,7 +6,7 @@
 */
 
 body {
-  font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, Helvetica Neue, sans-serif;
+  font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif
 }
 
 .container {
@@ -89,6 +89,12 @@ body {
 
 .blog-post-content {
   padding: 4% 6%;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
 }
 
 @media (max-width: 991.98px) {

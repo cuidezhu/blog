@@ -1,5 +1,5 @@
 ---
-title: "Git合并某个分支下的某个文件"
+title: "Git 合并某个分支下的某个文件"
 date: 2018-04-23T23:22:52+08:00
 draft: false
 slug: git-merge-branch-file

@@ -97,6 +97,12 @@ p {
   line-height: 1.7;
 }
 
+@media (min-width: 991.98px) {
+  .archive-item-date {
+    padding-top: 3px;
+  }
+}
+
 @media (max-width: 991.98px) {
   .container {
     margin: 0;

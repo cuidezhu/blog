@@ -10,7 +10,7 @@ GitHub 首页的改版好蛋疼，原先的右栏换成了左栏，左栏换成�
 
 ## 更新：
 
-发现用 [Stylish-为任意网站自定义主题](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe)，而且Stylish支持正则表达式匹配网址。
+发现用 [Stylish-为任意网站自定义主题](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe) 更方便，Stylish 改变 UI 时不会闪一下，而且Stylish支持正则表达式匹配网址。
 
 下载好Stylish后，点插件图标，然后点右上角的菜单图标，新建样式，
 

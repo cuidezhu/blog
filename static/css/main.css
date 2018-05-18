@@ -97,6 +97,10 @@ p {
   line-height: 1.7;
 }
 
+a {
+  color: #3194d0;
+}
+
 @media (min-width: 991.98px) {
   .archive-item-date {
     padding-top: 3px;

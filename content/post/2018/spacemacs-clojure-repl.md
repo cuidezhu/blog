@@ -30,3 +30,13 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ```
 
 然后打开 Emacs 图形界面应用程序，这里为什么不在终端中打开 Emacs 呢，因为 Spacemacs 本身就是为 GUI 而设计的，在终端中打开的话，就连 Spacemacs 的 Logo 都会乱码。直接在终端中输入 `emacs` 打开的就是 GUI 版的 Emacs 了，然后按照提示回答三个问题，让你选择风格的，我习惯用 Vim， 三个问题我选的都是第一项。然后就可以安装了，耐心等待安装完全部的插件，Spacemacs 就安装好了。这样 Spacemacs 就可以使用 vim 的很多快捷键来使用 Emacs 了，结合了 Emacs 和 Vim 的优点。
+
+## 安装 Leiningen
+
+Leiningen 是用来自动化生成 Clojure 项目，官方使用的安装方法稍微麻烦，我们直接通过 Homebrew 来安装 Leiningen:
+
+```sh
+brew install Leiningen
+```
+
+

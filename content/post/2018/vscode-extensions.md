@@ -15,4 +15,6 @@ Import Cost: Display import/require package size in the editor. 计算 import �
 
 markdownlint: Markdown linting and style checking for Visual Studio Code. Markdown 语法检查；
 
+[Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one): All you need to write Markdown (keyboard shortcuts, table of contents, auto preview and more), 我经常用的一个功能是预览，按 `Ctrl + Shift + V` 可以 "Open Preview";
+
 我还装了一些其它的插件，但感觉上面那几个最实用。

@@ -1,8 +1,8 @@
 ---
-title: "常见的数据结构和算法（JavaScript实现）"
+title: "二分查找（JavaScript实现）"
 date: 2018-06-21T20:47:22+08:00
 draft: false
-slug: "Data-Structure-Algorithm-JavaScript"
+slug: "Data-Structure-Algorithm-JavaScript-Binary-Search"
 ---
 
 ## 二分查找
@@ -22,7 +22,7 @@ function binarySearch(orderArr, element) {
     } else if (element > orderArr[mid]) {
       start = mid + 1;
     } else {
-      console.log('element index is ' + mid)
+      console.log('element index is ' + mid);
       return mid;
     }
   }

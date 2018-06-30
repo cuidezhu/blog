@@ -7,7 +7,6 @@ slug: "JavaScript-Quicksort-Recursion-Divide"
 
 ## 递归法
 
-
 ```js
 function quickSort(arr) {
   let length = arr.length;

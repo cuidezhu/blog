@@ -5,7 +5,7 @@ draft: false
 slug: "Counting Duplicates Sort"
 ---
 
-我们有某个字符串 `text`  假设 `text` 是由字母和数字组成的，现在我们要字符串中的字符重复出现的字数，然后按字数进行排序，输出。
+我们有某个字符串 `text`  假设 `text` 是由字母和数字组成的，现在我们要统计字符串中的字符重复出现的次数，然后按次数进行排序，输出。
 
 ```js
 function countDuplicates(text) {

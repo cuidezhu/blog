@@ -7,6 +7,7 @@ slug: "JavaScript-Quicksort-Recursion-Divide"
 
 ## 递归法
 
+
 ```js
 function quickSort(arr) {
   let length = arr.length;
@@ -35,3 +36,5 @@ function quickSort(arr) {
 let testArr = [3, 5, 1, 7, 9, 10, 30, 28, 19, 6];
 console.log(quickSort(testArr))
 ```
+
+关于 `let pivot = arr.splice(pivotIndex, 1)[0];` 是因为我们要用 `splice()` 把 `pivot` 从数组中剔除。

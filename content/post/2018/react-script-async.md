@@ -9,7 +9,7 @@ slug: react-script-async
 
 最近在做项目时，需要用到第三方的人机验证码服务，而这项服务没有npm包，所以就需要引入 `<script>`，我们只需要在需要在用到这个人机验证服务的component里加入以下代码就可以实现异步加载 `<script>`：
 
-```
+```js
 componentDidMount () {
   const script = document.createElement("script")
 

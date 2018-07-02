@@ -1,7 +1,7 @@
 ---
 title: "JavaScript 函数防抖 Debounce 实现原理"
 date: 2018-07-02T23:20:48+08:00
-draft: true
+draft: false
 slug: "JavaScript-Function-Debounce"
 ---
  
@@ -51,6 +51,10 @@ function debounce(fn, delay) {
     }, delay);
   }
 }
+```
+
+```html
+<input type="text" id="myInput">
 ```
 
 调用方法类似如下：

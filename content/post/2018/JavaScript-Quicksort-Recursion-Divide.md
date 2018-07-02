@@ -1,11 +1,9 @@
 ---
-title: "JavaScript 实现快速排序 -- 挖坑法和递归法"
+title: "JavaScript 实现快速排序"
 date: 2018-06-30T20:06:11+08:00
 draft: false
 slug: "JavaScript-Quicksort-Recursion-Divide"
 ---
-
-## 递归法
 
 ```js
 function quickSort(arr) {

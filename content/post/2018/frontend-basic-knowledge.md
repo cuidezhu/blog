@@ -28,3 +28,9 @@ people.prototype.salary = null;
 bill.salary = 20000;
 console.log(bill.salary);    // output 20000
 ```
+
+ES6 的 class 也支持用 `extends` 关键字来实现继承：
+
+```js
+class Test extends React.Component
+```

@@ -32,5 +32,18 @@ console.log(bill.salary);    // output 20000
 ES6 的 class 也支持用 `extends` 关键字来实现继承：
 
 ```js
-class Test extends React.Component
+class B extends A
+```
+
+我们用 `prototype` 实现 B 继承 A 的方式 如下：
+
+```js
+function A() {
+  this.arr = [1, 2]
+}
+
+function B() {
+}
+
+B.prototype = new A();
 ```

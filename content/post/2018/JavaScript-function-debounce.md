@@ -119,7 +119,11 @@ func.call(obj);       // "jack"
 
 call 方法的第一个参数是作为函数上下文的对象，这里把 obj 作为参数传给了 func，此时函数里的 this 便指向了 obj 对象。此处 func 函数里其实相当于
 
-`
+```js
+function func() {
+  console.log(obj.name);
+}
+```
 
 call 和 apply 作用相同，只是接收的参数不一样
 

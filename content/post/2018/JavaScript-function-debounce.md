@@ -100,6 +100,3 @@ function doAdd() {
 doAdd(10);  //输出 "15"
 doAdd(40, 20);  //输出 "60"
 ```
-
-### 关于 apply()
-

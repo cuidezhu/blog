@@ -2,7 +2,7 @@
 title: "调整 Github 首页布局"
 date: 2018-05-18T08:28:02+08:00
 draft: false
-slug: github-index-layout
+slug: "github-index-layout"
 ---
 
 GitHub 首页的改版好蛋疼，原先的右栏换成了左栏，左栏换成了右栏。看着好别扭，原先的看习惯了，于是想把 Github 的首页布局改回去。

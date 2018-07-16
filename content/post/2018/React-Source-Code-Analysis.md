@@ -1,5 +1,5 @@
 ---
-title: "React 源码解析"
+title: "React 原理深入解析（附源码）"
 date: 2018-07-15T09:51:10+08:00
 draft: false
 slug: "React-Source-Code-Analysis"
@@ -91,6 +91,8 @@ export function createElement(type, config, children) {
 
 ## ReactElement()
 
+目录：`react/packages/react/src/ReactElement.js`
+
 ```js
 const ReactElement = function(type, key, ref, self, source, owner, props) {
   const element = {
@@ -170,3 +172,115 @@ const element = {
 可见 `createElement()` 函数最终创建的元素在 JavaScript 内部的形式就是上面形式的对象。
 
 `Object.defineProperty()` 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
+
+**React 就是用上面的 JavaScript 对象来模拟 DOM 树，称为虚拟 DOM。**
+
+## 虚拟 DOM
+
+当我们 `setState` 时，会生成一棵新的 DOM 树，React 会使用 Diff 算法来逐层判断新生成的树和上次树的差别，发现差异后，把差异记录下来，然后去操作真实 DOM，来达到最少操作 DOM 的目的。
+
+React只会对同一个层级的元素进行对比，即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较。这样只需要对树进行一次遍历，便能完成整个DOM树的比较。
+
+![react-dom-diff](/img/2018/07/react-dom-diff.png)
+
+React 的 diff 算法比较复杂，在源码的 `react/packages/react-reconciler/` 目录下可以看到整套调和的源码。
+
+我们也可以使用 `shouldComponentUpdate()` 来自己定制更新 DOM 操作。
+
+## 把差异应用到真正的DOM树上
+
+上一步我们记录下了差异，然后 React 会把差异应用到真实的 DOM 树上:
+
+目录：`react/packages/react-dom/src/client/ReactDOMFiberComponent.js`
+
+```js
+// Apply the diff.
+export function updateProperties(
+  domElement: Element,
+  updatePayload: Array<any>,
+  tag: string,
+  lastRawProps: Object,
+  nextRawProps: Object,
+): void {
+  // Update checked *before* name.
+  // In the middle of an update, it is possible to have multiple checked.
+  // When a checked radio tries to change name, browser makes another radio's checked false.
+  if (
+    tag === 'input' &&
+    nextRawProps.type === 'radio' &&
+    nextRawProps.name != null
+  ) {
+    ReactDOMFiberInput.updateChecked(domElement, nextRawProps);
+  }
+
+  const wasCustomComponentTag = isCustomComponent(tag, lastRawProps);
+  const isCustomComponentTag = isCustomComponent(tag, nextRawProps);
+  // Apply the diff.
+  updateDOMProperties(
+    domElement,
+    updatePayload,
+    wasCustomComponentTag,
+    isCustomComponentTag,
+  );
+
+  // TODO: Ensure that an update gets scheduled if any of the special props
+  // changed.
+  switch (tag) {
+    case 'input':
+      // Update the wrapper around inputs *after* updating props. This has to
+      // happen after `updateDOMProperties`. Otherwise HTML5 input validations
+      // raise warnings and prevent the new value from being assigned.
+      ReactDOMFiberInput.updateWrapper(domElement, nextRawProps);
+      break;
+    case 'textarea':
+      ReactDOMFiberTextarea.updateWrapper(domElement, nextRawProps);
+      break;
+    case 'select':
+      // <select> value update needs to occur after <option> children
+      // reconciliation
+      ReactDOMFiberSelect.postUpdateWrapper(domElement, nextRawProps);
+      break;
+  }
+}
+```
+
+这里会对 input 等输入表单做些检查等特别处理，上面函数调用的是 updateDOMProperties() 来更新 DOM:
+
+目录：`react/packages/react-dom/src/client/ReactDOMFiberComponent.js`
+
+```js
+function updateDOMProperties(
+  domElement: Element,
+  updatePayload: Array<any>,
+  wasCustomComponentTag: boolean,
+  isCustomComponentTag: boolean,
+): void {
+  // TODO: Handle wasCustomComponentTag
+  for (let i = 0; i < updatePayload.length; i += 2) {
+    const propKey = updatePayload[i];
+    const propValue = updatePayload[i + 1];
+    if (propKey === STYLE) {
+      CSSPropertyOperations.setValueForStyles(
+        domElement,
+        propValue,
+        getStackInDev,
+      );
+    } else if (propKey === DANGEROUSLY_SET_INNER_HTML) {
+      setInnerHTML(domElement, propValue);
+    } else if (propKey === CHILDREN) {
+      setTextContent(domElement, propValue);
+    } else {
+      DOMPropertyOperations.setValueForProperty(
+        domElement,
+        propKey,
+        propValue,
+        isCustomComponentTag,
+      );
+    }
+  }
+}
+```
+
+上面函数使用了个 for 循环来遍历需要更新的元素，然后根据 propKey 来执行不同的操作。
+
+至此，React 大致原理差不多就完了。

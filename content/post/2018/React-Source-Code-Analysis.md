@@ -1,8 +1,8 @@
 ---
-title: "React 原理解析"
+title: "React 源码解析"
 date: 2018-07-15T09:51:10+08:00
 draft: false
-slug: "React-Principle-Analysis"
+slug: "React-Source-Code-Analysis"
 ---
 
 ## JSX

@@ -11,7 +11,7 @@ slug: "axios-cancelToken"
 
 假如说页面中有两项菜单可供选择，这两项菜单下的内容是同一个页面，同一个组件，两项菜单下的页面结构是一样的，只是数据不同，数据比如都是使用 axios 请求 REST API 获取到的，然后用 `setState` 把 API 传过来的值展示到页面中。
 
-```
+```js
 axios.get('/test', {
     params: {
       type: 'fruit'
@@ -38,14 +38,14 @@ axios.get('/test', {
 
 我们在点击菜单项绑定的函数中每次定义下面两个变量
 
-```
+```js
 const CancelToken = axios.CancelToken
 const source = CancelToken.source()
 ```
 
 注意上面两个变量初始化时每次切换菜单项时都要重新定义，不然只定义一次的话，上面两个变量的值只是初始化时的值。我们可以把上面两个变量写到我们发送请求的前面，然后把发送请求包装成一个函数，在 `componentDidMount()` 和 切换菜单项时调用这个函数。然后完整的代码如下。
 
-```
+```js
 handleRequest() {
   const CancelToken = axios.CancelToken
   const source = CancelToken.source()

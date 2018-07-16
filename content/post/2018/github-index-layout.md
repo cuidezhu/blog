@@ -18,7 +18,7 @@ GitHub 首页的改版好蛋疼，原先的右栏换成了左栏，左栏换成�
 
 然后把下面这行 css 复制到代码部分，
 
-```
+```css
 .column {
   float: right;
 }
@@ -46,7 +46,7 @@ document.getElementsByClassName('column')[0].style.float="right"
 
 完整的代码如下:
 
-```
+```js
 // ==UserScript==
 // @name         New Userscript
 // @namespace    http://tampermonkey.net/

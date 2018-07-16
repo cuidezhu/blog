@@ -2,7 +2,7 @@
 title: "Apply, Call 和 Bind"
 date: 2018-07-04T23:58:57+08:00
 draft: false
-slug: "Apply, Call 和 Bind"
+slug: "Apply-Call-Bind"
 ---
 
 在 JavaScript 中，call 和 apply 都是为了改变某个函数运行时的上下文（context）而存在的，换句话说，就是为了改变函数体内部 this 的指向。

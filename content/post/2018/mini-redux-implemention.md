@@ -7,9 +7,9 @@ slug: "Mini-Redux-Implemention"
 
 redux 主要由三部分组成：action, reduer, store，
 
-## action
+## Action
 
-action 是用户自己定义的，用来描述发生了什么, action 的 type 字段是必须的，其它字段可以自己定义：
+Action 是用户自己定义的，用来描述发生了什么, action 的 type 字段是必须的，其它字段可以自己定义：
 
 ```js
 const action = {
@@ -34,7 +34,13 @@ function todoApp(state = initialState, action) {
 
 ## Store
 
-redux 只有一个单一的 Store 通过 `createStore()` 来创建创建 store，
+redux 只有一个单一的 Store, 用户通过 `createStore()` 来创建 store，`createStore()` 接受一个 reducer 函数作为参数, 我们使用 `combineReducers()` 将多个 reducer 合并成为一个。。
+
+`createStore()` 的第二个参数是可选的, 用于设置 state 初始状态。这对开发同构应用时非常有用，服务器端 redux 应用的 state 结构可以与客户端保持一致, 那么客户端可以将从网络接收到的服务端 state 直接用于本地数据初始化。
+
+```js
+let store = createStore(todoApp, window.STATE_FROM_SERVER)
+```
 
 Store 有以下职责：
 

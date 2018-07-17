@@ -15,6 +15,9 @@ export function createStore(reducer) {
   }
 
   function subscribe(listener) {
+    if (typeof listener !== 'function') {
+      throw new Error('Expected the listener to be a function.')
+    }
     currentListeners.push(listener)
   }
 

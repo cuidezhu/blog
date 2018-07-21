@@ -11,3 +11,4 @@ React组件内的数据一般用state来存储，但是如果所有的除props�
 
 我遇到的那种场景，this.setState改变一个state的值，然后立即去fetch一个url中带有这个state参数的api，就会导致这个state的值是上一次的值，fetch到的数据是旧的，setState执行慢了一点点。本想加个setTimeout延迟几毫秒给解决掉，又一想，这样不是正经程序员所为，就把这个state改为this.x=‘123’这样的属性，这样就能解决setState异步执行带来的问题。
 
+也可以在 `setState()` 的回调函数里去解决 `setState()` 异步带来的问题。

@@ -13,6 +13,12 @@ body {
   margin: 3% 10% 0 10%;
 }
 
+@media (min-width: 1400px) {
+  .container {
+    margin: 3% 20% 0 20%;
+  }
+}
+
 .sitename, .article-head {
   padding: 12px 16px;
   background-color: #f1f8ff;

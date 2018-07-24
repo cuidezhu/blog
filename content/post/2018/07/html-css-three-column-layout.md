@@ -117,6 +117,37 @@ slug: "Html-Css-Three-Column-Layout"
     </div>
     <div class="right"></div>
   </section>
+
+  <!-- table 布局 -->
+  <section class="layout table">
+    <style>
+      .layout.table {
+        width: 100%;
+        display: table;
+        height: 150px;
+      }
+      .layout.table > div {
+        display: table-cell;
+      }
+      .layout.table .left {
+        width: 300px;
+        background: red;
+      }
+      .layout.table .center {
+        background: yellow;
+      }
+      .layout.table .right {
+        width: 300px;
+        background: blue;
+      }
+    </style>
+    <div class="left"></div>
+    <div class="center">
+      <h2>表格布局</h2>
+      <p>这是三栏布局表格布局的中间部分</p>
+    </div>
+    <div class="right"></div>
+  </section>
 </body>
 </html>
 ```

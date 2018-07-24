@@ -34,8 +34,105 @@ render()
 
 我们可以在 App 组件中将 Store 作为属性传递给它的子组件，现在可以在子组件中使用它了。
 
-但这种方法需要属性在每层组件树中传递，就像上面的实例，我们需要把 Store 首先作为属性传递给 App 组件，App 组件再把 Store 作为属性传递给它的子组件，最后才在 App 的自组件内使用传递来的属性。如何克服这种在每一层级都传递属性的缺点呢？
+但这种方法需要属性在每层组件树中传递，就像上面的实例，我们需要把 Store 首先作为属性传递给 App 组件，App 组件再把 Store 作为属性传递给它的子组件，最后才在 App 的自组件内使用传递来的属性。如何克服这种在每一层级都传递属性的缺点呢？再看下面这个例子：
+
+```js
+import React from 'react'
+
+class Sidebar extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>侧边栏</p>
+        <Navbar user={this.props.user}></Navbar>
+      </div>
+    )
+  }
+}
+
+class Navbar extends React.Component {
+  render() {
+    return (
+      <div>{this.props.user}的导航栏</div>
+    )
+  }
+}
+
+class Page extends React.Component {
+  render() {
+    const user = 'Jack'
+    return (
+      <div>
+        <p>我是{user}</p>
+        <Sidebar user={user}></Sidebar>
+      </div>
+    )
+  }
+}
+
+export default Page
+```
+
+上面这种层层通过属性传递比较繁琐，而且 `Sidebar` 这个组件本身不需要 `user` 这个数据，却依然需要接收和传递数据，这对性能也是一种浪费。
 
 React 中的 Context 就是为了解决这个问题，Context 通过组件树提供了一个传递数据的方法，从而避免了在每一个层级手动的传递 props 属性。
 
 ## Context
+
+Context 是全局的，组件里声明，所有的子元素可以直接获取。
+
+把上面的例子用 Context 改造如下：
+
+```js
+import React from 'react'
+import PropTypes from 'prop-types'
+
+class Sidebar extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>侧边栏</p>
+        <Navbar></Navbar>
+      </div>
+    )
+  }
+}
+
+class Navbar extends React.Component {
+  static contextTypes = {
+    user: PropTypes.string
+  }
+  render() {
+    console.log(this.context)
+    return (
+      <div>{this.context.user}的导航栏</div>
+    )
+  }
+}
+
+class Page extends React.Component {
+  static childContextTypes = {
+    user: PropTypes.string
+  }
+  constructor(props) {
+    super(props)
+    this.state = {user: 'Jack'}
+  }
+  getChildContext() {
+    return this.state
+  }
+  render() {
+    return (
+      <div>
+        <p>我是{this.state.user}</p>
+        <Sidebar></Sidebar>
+      </div>
+    )
+  }
+}
+
+export default Page
+```
+
+## 实现 react-redux
+

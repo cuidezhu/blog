@@ -21,6 +21,14 @@ slug: "Html-Css-Three-Column-Layout"
       padding: 0;
     }
 
+    .layout {
+      margin-top: 20px;
+    }
+
+    .layout:first-child {
+      margin-top: 0;
+    }
+
     .layout div {
       min-height: 150px;
     }
@@ -50,6 +58,36 @@ slug: "Html-Css-Three-Column-Layout"
       <h1>浮动解决方案</h1>
       <p>这是三栏布局的中间部分</p>
     </div>
+  </section>
+
+  <!-- 绝对定位 -->
+  <section class="layout absolute">
+    <style>
+      .layout.absolute > div {
+        position: absolute;
+      }
+      .layout.absolute .left {
+        left: 0;
+        width: 300px;
+        background: red;
+      }
+      .layout.absolute .center {
+        left: 300px;
+        right: 300px;
+        background: yellow;
+      }
+      .layout.absolute .right {
+        right: 0;
+        width: 300px;
+        background: blue;
+      }
+    </style>
+    <div class="left"></div>
+    <div class="center">
+      <h1>绝对定位解决方案</h1>
+      <p>这是三栏布局绝对定位的中间部分</p>
+    </div>
+    <div class="right"></div>
   </section>
 </body>
 </html>

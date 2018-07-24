@@ -148,16 +148,33 @@ slug: "Html-Css-Three-Column-Layout"
     </div>
     <div class="right"></div>
   </section>
+
+  <!-- 网格布局 -->
+  <section class="layout grid">
+    <style>
+      .layout.grid {
+        display: grid;
+        width: 100%;
+        grid-template-row: 150px;
+        grid-template-columns: 300px auto 300px;
+      }
+      .layout.grid .left {
+        background: red;
+      }
+      .layout.grid .center {
+        background: yellow;
+      }
+      .layout.grid .right {
+        background: blue;
+      }
+    </style>
+    <div class="left"></div>
+    <div class="center">
+      <h1>网格布局解决方案</h1>
+      <p>这是三栏布局网格布局的中间部分</p>
+    </div>
+    <div class="right"></div>
+  </section>
 </body>
 </html>
 ```
-
-## 绝对定位
-
-## Flex 布局
-
-## 表格布局
-
-虽然表格布局已被淘汰，但 `display: table-cell;`
-
-## Grid（网格）布局

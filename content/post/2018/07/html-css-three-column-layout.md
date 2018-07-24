@@ -89,6 +89,34 @@ slug: "Html-Css-Three-Column-Layout"
     </div>
     <div class="right"></div>
   </section>
+
+  <!-- Flexbox 布局 -->
+  <section class="layout flexbox">
+    <style>
+      .layout.flexbox {
+        display: flex;
+        margin-top: 190px;
+      }
+      .layout.flexbox .left {
+        width: 300px;
+        background: red;
+      }
+      .layout.flexbox .center {
+        flex: 1;
+        background: yellow;
+      }
+      .layout.flexbox .right {
+        width: 300px;
+        background: blue;
+      }
+    </style>
+    <div class="left"></div>
+    <div class="center">
+      <h2>Flexbox 解决方案</h2>
+      <p>这是三栏布局Flexbox 的中间部分</p>
+    </div>
+    <div class="right"></div>
+  </section>
 </body>
 </html>
 ```

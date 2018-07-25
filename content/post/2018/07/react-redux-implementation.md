@@ -139,22 +139,48 @@ export default Page
 ```js
 import React from 'react'
 import PropTypes from 'prop-types'
-// connext负责链接组件，給到redux里的数据放到组件的属性里
+// connect负责链接组件，給到redux里的数据放到组件的属性里
 // 1. 负责接受一个组件，把state里的一些数据放进去，返回一个组件
 // 2. 数据变化的时候，能够通知组件
 
 // function 写法写 connect
-export function connect(mapStateToProps, mapDispatchToProps) {
-  return function(WrapComponect) {
-    return class ConnectComponent extends React.COmponent {
+// export function connect(mapStateToProps, mapDispatchToProps) {
+//   return function(WrapComponent) {
+//     return class ConnectComponent extends React.Component {
 
-    }
+//     }
+//   }
+// }
+
+// 双层箭头函数的写法
+export const connect = (mapStateToProps=state=>state, mapDispatchToProps={}) => (WrapComponent) => {
+  return class ConnectComponent extends React.Component {
+      static contextTypes = {
+        store: PropTypes.object
+      }
+
+      constructor(props, context) {
+        super(props)
+        this.state = {
+          props: {}
+        }
+      }
+
+      componentDidMount() {
+        this.update()
+      }
+
+      update() {
+        // 获取 mapStateToProps 和 mapDispatchToProps 放入 this.props里
+        const {store} = this.context.store
+        const stateProps = mapStateToProps(store.getState())
+      }
+
+      render() {
+        return <WrapComponent {...this.state.props}></WrapComponent>
+      }
   }
 }
-
-// export const connect = (mapStateToProps=state=>state, mapDispatchToProps={}) => {
-
-// }
 
 // Provider, 把store放到context里，所有的子元素可以直接取到store
 

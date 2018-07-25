@@ -5,7 +5,7 @@ draft: false
 slug: "react-redux-implementation"
 ---
 
-前面的文章 [迷你 Redux 实现](ijs.me/2018/07/14/mini-redux-implemention/) 我们实现了一个简单的 Redux, 那么我们怎么在 React 项目里使用我们自制的 Redux 呢？我们可以显式传递 Store，但更优雅的方式是使用 react-redux，这篇文章会实现我们自己的 react-redux。
+前面的文章 [迷你 Redux 实现](https://ijs.me/2018/07/14/mini-redux-implemention/) 我们实现了一个简单的 Redux, 那么我们怎么在 React 项目里使用我们自制的 Redux 呢？我们可以显式传递 Store，但更优雅的方式是使用 react-redux，这篇文章会实现我们自己的 react-redux。
 
 ## 显式传递 Store
 

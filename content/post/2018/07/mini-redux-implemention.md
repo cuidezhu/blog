@@ -86,7 +86,7 @@ export function createStore(reducer) {
 
 ## bindActionCreators
 
-然后我们实现 `bindActionCreators()`,这个函数首先负责把action创建函数用dispatch包一层，然后返回有相同keys的一个对象，通常用于 react-redux 里的 connect。
+然后我们实现 `bindActionCreators()`,这个函数首先负责把 action 创建函数用 dispatch 包一层，然后返回有相同keys的一个对象，通常用于 react-redux 里的 connect 的第二个参数的映射。
 
 ```js
 // bindActionCreators

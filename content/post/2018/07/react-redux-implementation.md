@@ -137,84 +137,84 @@ export default Page
 ## 实现 react-redux
 
 ```js
-export function createStore(reducer, enhancer) {
-  if (enhancer) {
-    return enhancer(createStore)(reducer)
+import React from 'react'
+import PropTypes from 'prop-types'
+import { bindActionCreators } from './mini-redux';
+
+// connect负责链接组件，給到redux里的数据放到组件的属性里
+// 1. 负责接受一个组件，把state里的一些数据放进去，返回一个组件
+// 2. 数据变化的时候，能够通知组件
+
+// function 写法写 connect
+// export function connect(mapStateToProps, mapDispatchToProps) {
+//   return function(WrapComponent) {
+//     return class ConnectComponent extends React.Component {
+
+//     }
+//   }
+// }
+
+// 双层箭头函数的写法
+export const connect = (mapStateToProps=state=>state, mapDispatchToProps={}) => (WrapComponent) => {
+  return class ConnectComponent extends React.Component {
+      static contextTypes = {
+        store: PropTypes.object
+      }
+
+      constructor(props, context) {
+        super(props)
+        this.state = {
+          props: {}
+        }
+      }
+
+      componentDidMount() {
+        const store = this.context.store
+        store.subscribe(() => this.update())
+        this.update()
+      }
+
+      update() {
+        // 获取 mapStateToProps 和 mapDispatchToProps 放入 this.props里
+        const { store }= this.context
+        const stateProps = mapStateToProps(store.getState())
+        // 方法不能直接给，因为需要dispatch, 直接执行方法无意义，要store.dispatch(action)才有意义
+        const dispatchProps = bindActionCreators(mapDispatchToProps, store.dispatch)
+        this.setState({
+          props: {...this.state.props, ...stateProps, ...dispatchProps}
+        })
+      }
+
+      render() {
+        return <WrapComponent {...this.state.props}></WrapComponent>
+      }
   }
-  let currentState = {}
-  let currentListeners = []
-
-  function getState() {
-    return currentState
-  }
-
-  function subscribe(listener) {
-    if (typeof listener !== 'function') {
-      throw new Error('Expected the listener to be a function.')
-    }
-    currentListeners.push(listener)
-  }
-
-  function dispatch(action) {
-    currentState = reducer(currentState, action)
-    currentListeners.forEach(v => v())
-
-    return action
-  }
-
-  // type 定义为一个特殊的值，触发 reducer 的 default 分支来获取初始 state
-  dispatch({type: '@@mini-redux/INIT'})
-
-  return { getState, subscribe, dispatch}
 }
 
-export function applyMiddleware(...middlewares) {
-  return createStore => (...args) => {
-    const store = createStore(...args)
-    let dispatch = store.dispatch
-    
-    const midApi = {
-      getState: store.getState,
-      dispatch: (...args) => dispatch(...args)
-    }
+// Provider, 把store放到context里，所有的子元素可以直接取到store
 
-    let middlewareChain = middlewares.map(middleware=>middleware(midApi))
-    dispatch = compose(...middlewareChain)(store.dispatch)
+export class Provider extends React.Component {
+  static childContextTypes = {
+    store: PropTypes.object
+  }
+  
+  // 把store存到context里，让子组件可取
+  getChildContext() {
+    return {store: this.store}
+  }
 
-    // dispatch = middleware(midApi)(store.dispatch)
+  constructor(props, context) {
+    super(props, context)
 
-    return {
-      ...store,
-      dispatch
-    }
+    // store 通过 Provider 组件的属性传进来
+    this.store = props.store
+  }
+
+  render() {
+    return this.props.children
   }
 }
 
-export function compose(...funcs) {
-  if (funcs.length === 0) {
-    return arg => arg
-  } else if (funcs.length ===1) {
-    return funcs[0]
-  }
-
-  return funcs.reduce((ret, item) => (...args) => ret(item(...args)))
-}
-
-// bindActionCreators
-
-function bindActionCreator(creator, dispatch) {
-  return (...args) => dispatch(creator(...args))
-}
-
-export function bindActionCreators(creators, dispatch) {
-  let bound = {}
-  Object.keys(creators).forEach(v => {
-    let creator = creators[v]
-    bound[v] = bindActionCreator(creator, dispatch)
-  })
-
-  return bound
-}
 ```
 
 我们可以看到官方的 react-redux 的 Provider 也是类似的实现方法 [react-redux/src/components/Provider.js](https://github.com/reduxjs/react-redux/blob/master/src/components/Provider.js)。

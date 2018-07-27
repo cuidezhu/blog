@@ -84,7 +84,9 @@ export function createStore(reducer) {
 }
 ```
 
-然后我们实现 `bindActionCreators()`,这个函数首先负责把action创建函数用dispatch包一层，然后返回有相同keys的一个对象
+## bindActionCreators
+
+然后我们实现 `bindActionCreators()`,这个函数首先负责把action创建函数用dispatch包一层，然后返回有相同keys的一个对象，通常用于 react-redux 里的 connect。
 
 ```js
 // bindActionCreators
@@ -104,5 +106,76 @@ export function bindActionCreators(creators, dispatch) {
 }
 ```
 
+## 加入中间件机制
+
+下面我们加入中间件机制，完整代码如下：
+
+```js
+export function createStore(reducer, enhancer) {
+  if (enhancer) {
+    return enhancer(createStore)(reducer)
+  }
+  let currentState = {}
+  let currentListeners = []
+
+  function getState() {
+    return currentState
+  }
+
+  function subscribe(listener) {
+    if (typeof listener !== 'function') {
+      throw new Error('Expected the listener to be a function.')
+    }
+    currentListeners.push(listener)
+  }
+
+  function dispatch(action) {
+    currentState = reducer(currentState, action)
+    currentListeners.forEach(v => v())
+
+    return action
+  }
+
+  // type 定义为一个特殊的值，触发 reducer 的 default 分支来获取初始 state
+  dispatch({type: '@@mini-redux/INIT'})
+
+  return { getState, subscribe, dispatch}
+}
+
+export function applyMiddleware(middleware) {
+  return createStore => (...args) => {
+    const store = createStore(...args)
+    let dispatch = store.dispatch
+    
+    const midApi = {
+      getState: store.getState,
+      dispatch: (...args) => dispatch(...args)
+    }
+
+    dispatch = middleware(midApi)(store.dispatch)
+
+    return {
+      ...store,
+      dispatch
+    }
+  }
+}
+
+// bindActionCreators
+
+function bindActionCreator(creator, dispatch) {
+  return (...args) => dispatch(creator(...args))
+}
+
+export function bindActionCreators(creators, dispatch) {
+  let bound = {}
+  Object.keys(creators).forEach(v => {
+    let creator = creators[v]
+    bound[v] = bindActionCreator(creator, dispatch)
+  })
+
+  return bound
+}
+```
 
 上面就把一个最简单的 Redux 给实现了。

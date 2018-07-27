@@ -84,4 +84,25 @@ export function createStore(reducer) {
 }
 ```
 
+然后我们实现 `bindActionCreators()`,这个函数首先负责把action创建函数用dispatch包一层，然后返回有相同keys的一个对象
+
+```js
+// bindActionCreators
+
+function bindActionCreator(creator, dispatch) {
+  return (...args) => dispatch(creator(...args))
+}
+
+export function bindActionCreators(creators, dispatch) {
+  let bound = {}
+  Object.keys(creators).forEach(v => {
+    let creator = creators[v]
+    bound[v] = bindActionCreator(creator, dispatch)
+  })
+
+  return bound
+}
+```
+
+
 上面就把一个最简单的 Redux 给实现了。

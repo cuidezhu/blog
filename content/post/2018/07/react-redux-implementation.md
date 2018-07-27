@@ -139,6 +139,8 @@ export default Page
 ```js
 import React from 'react'
 import PropTypes from 'prop-types'
+import { bindActionCreators } from './mini-redux';
+
 // connect负责链接组件，給到redux里的数据放到组件的属性里
 // 1. 负责接受一个组件，把state里的一些数据放进去，返回一个组件
 // 2. 数据变化的时候，能够通知组件
@@ -167,13 +169,20 @@ export const connect = (mapStateToProps=state=>state, mapDispatchToProps={}) => 
       }
 
       componentDidMount() {
+        const store = this.context.store
+        store.subscribe(() => this.update())
         this.update()
       }
 
       update() {
         // 获取 mapStateToProps 和 mapDispatchToProps 放入 this.props里
-        const {store} = this.context.store
+        const { store }= this.context
         const stateProps = mapStateToProps(store.getState())
+        // 方法不能直接给，因为需要dispatch, 直接执行方法无意义，要store.dispatch(action)才有意义
+        const dispatchProps = bindActionCreators(mapDispatchToProps, store.dispatch)
+        this.setState({
+          props: {...this.state.props, ...stateProps, ...dispatchProps}
+        })
       }
 
       render() {
@@ -205,6 +214,7 @@ export class Provider extends React.Component {
     return this.props.children
   }
 }
+
 ```
 
 我们可以看到官方的 react-redux 的 Provider 也是类似的实现方法 [react-redux/src/components/Provider.js](https://github.com/reduxjs/react-redux/blob/master/src/components/Provider.js)。

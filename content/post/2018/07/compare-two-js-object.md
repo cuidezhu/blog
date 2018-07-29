@@ -40,3 +40,13 @@ function compareObj(obj1, obj2) {
 }
 console.log(compareObj(obj,obj1))  //true
 ```
+
+但上面那种递归的复杂度较高，所以在 React 做数据对象对比时，做了一些妥协，只会做浅层对比，即不会考虑对象的属性值还是对象的情况。
+
+```js
+for(let k in obj1) {
+  if (obj1[k] !== obj2[k]) {
+    return false
+  }
+}
+```

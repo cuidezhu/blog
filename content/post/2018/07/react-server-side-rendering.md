@@ -143,3 +143,58 @@ import staticPath from '../build/asset-manifest.json'
 ```
 
 重启项目我们发现我们服务端渲染的首页已经正常显示了。
+
+## React 16 renderToNodeStream() 新 API 实现服务端渲染
+
+直接渲染成 Node 节点流，通过这个节点流给浏览器流式地返回，我们把我们上面的 renderToString() 改为 React 16 的renderToNodeStream()
+
+```js
+const objDes = {
+  '/msg': 'React Chat',
+  '/boss': 'boss genius'
+}
+
+res.write(`<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <meta name="keywords" content="React, Redux, SSR, ${objDes[req.url]}">
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="stylesheet" href="/${staticPath['main.css']}">
+
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root">`)
+const markupStream = renderToNodeStream(
+  (<Provider store={store}>
+    <StaticRouter
+      location={req.url}
+      context={context}
+    >
+      <App></App>
+    </StaticRouter>
+  </Provider>)
+)
+
+markupStream.pipe(res, {end: false})
+markupStream.on('end', ()=> {
+  res.write(`</div>
+  <script src="/${staticPath['main.js']}"></script>
+  </body>
+</html>`)
+  res.end()
+})
+
+```
+
+然后把 `src/index.js` 里的 `ReactDOM.render()` 改为 `ReactDOM.hydrate()`
+
+然后我们就完成流式渲染了。

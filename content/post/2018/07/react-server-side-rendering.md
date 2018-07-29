@@ -61,7 +61,7 @@ const markup = renderToString(
 )
 ```
 
-## css-modules-require-hook
+## css-modules-require-hook 解决 CSS 报错
 
 Node 里是没有 CSS 的，所以我们用 css-modules-require-hook 这个包来解决 CSS 报错相关问题：
 
@@ -84,3 +84,62 @@ module.exports = {
   generateScopedName: '[name]__[local]___[hash:base64:5]',
 }
 ```
+
+## asset-require-hook 解决图片报错
+
+在 servder.js 代码中加入下列代码：
+
+```js
+import assethook from 'asset-require-hook'
+assethook({
+  extensions: ['png']
+})
+```
+
+## 拼接 public/index.html 骨架
+
+把服务端生成的 html 放到 html 骨架里：
+
+```js
+const pageHtml = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root">${markup}</div>
+  </body>
+</html>`
+
+res.send(pageHtml)
+```
+
+现在我们的 html 页面就是带有骨架的完整页面了。
+
+## 引入 CSS 和 JS 文件
+
+我们 build 项目生成的 build 文件夹下的 `build/asset-manifest.json` 文件中有 CSS 和 JS 的路径，因为文件名每次 build 每次都在变，这样做是为了在文件名中加入 hash 值使之不命中缓存。
+
+```js
+import staticPath from '../build/asset-manifest.json'
+```
+
+然后我们在 html 骨架中加入下面两行代码来分别引入 CSS 和 JS
+
+```js
+<link rel="stylesheet" href="/${staticPath['main.css']}">
+
+<script src="/${staticPath['main.js']}"></script>
+```
+
+重启项目我们发现我们服务端渲染的首页已经正常显示了。

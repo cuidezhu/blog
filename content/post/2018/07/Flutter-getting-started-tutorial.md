@@ -37,7 +37,7 @@ export PATH=[PATH_TO_FLUTTER_GIT_DIRECTORY]/flutter/bin:$PATH
 
 首先我们安装 Android Studio，然后去 Android Studio 的 Plugins 下的Browse repositories 里搜索安装 Dart 和 Flutter 这两个插件。
 
-然后我们来创建一个安装模拟器，启动 Android Studio>Tools>AVD Manager 选择 Create Virtual Device，选择一个设备，这里我们选择的是 Pixel 2，点 Next，选择一个系统镜像，我选的是 API 27 的 Oreo，点击 Download，选中我们下载的系统镜像，点 Next。
+然后我们来创建一个安装模拟器，启动 Android Studio>Tools>AVD Manager 选择 Create Virtual Device，选择一个设备，这里我们选择的是 Pixel 2，点 Next，选择一个系统镜像，我选的是 API 27 的 Oreo，点击 Download，选中我们下载的系统镜像，点 Next，在 Emulated Performance 选项下，选择 Hardware - GLES 2.0 来开启硬件加速，确认配置，点 Finish。
 
 ## VS Code 开发环境
 
@@ -58,3 +58,9 @@ flutter create myapp
 在创建好的项目里，`lib/main.dart` 是我们的代码文件。
 
 ## 启动项目
+
+我们在 Android Studio 里打开我们创建的项目，然后选择一个我们之前创建的模拟器，启动完成我们就可以看到模拟器进入到手机的 Home 屏幕。然后我们点击 Android Studio 工具栏里的绿色的 Run 按钮，等待片刻，就可以在模拟器中启动我们的 Flutter 项目了。
+
+![flutter start demo](/img/2018/07/flutter-android-start-demo.png)
+
+你可以修改 `lib/main.dart` 文件内容，然后保存，可以看到模拟器里的 App 也随之更新了，这就是 Flutter 带来的热加载。

@@ -26,3 +26,9 @@ export PATH=[PATH_TO_FLUTTER_GIT_DIRECTORY]/flutter/bin:$PATH
 然后执行 `source $HOME/.zshrc` 使修改生效。
 
 运行 `flutter doctor` 查看是否有需要安装的依赖，这条命令检查你的环境然后会把问题列在命令行中，根据提示安装所需依赖即可。安装完了依赖项，再次运行 `flutter doctor` 来确保一切都正常工作。
+
+## iOS 开发环境
+
+首先下载Xcode，可以去 Mac App Store 下载最新版的 Xcode，然后打开模拟器 `open -a Simulator`，在 Flutter 项目的根目录下执行 `flutter run` 即可启动 App。
+
+一般你把 `flutter doctor` 列出的问题按照上面提示的方式解决完，就完成了发布到 iOS 和 Android 设备上的设置，具体可参考官网和 `flutter doctor` 列出的信息。

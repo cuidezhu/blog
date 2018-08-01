@@ -61,7 +61,7 @@ flutter create myapp
 
 我们在 Android Studio 里打开我们创建的项目，然后选择一个我们之前创建的模拟器，启动完成我们就可以看到模拟器进入到手机的 Home 屏幕。然后我们点击 Android Studio 工具栏里的绿色的 Run 按钮，等待片刻，就可以在模拟器中启动我们的 Flutter 项目了。
 
-![flutter start demo](/img/2018/07/flutter-android-start-demo.png)
+<src="/img/2018/07/flutter-android-start-demo.png" alt="flutter start demo" width="50%">
 
 你可以修改 `lib/main.dart` 文件内容，然后保存，可以看到模拟器里的 App 也随之更新了，这就是 Flutter 带来的热加载。
 
@@ -70,4 +70,5 @@ flutter create myapp
 我这里使用的是坚果3，目前安装的最新的 Smartisan os v6.0.2.2，基于 Android 7.1.2定制，用手机数据线把手机和电脑连接。我们到设置->关于手机，点击软件版本 7 次左右直至开发者模式开启为止。然后退回上一层菜单，点击全局高级设置，滑到底部可以看到开发者选项，进入开发者选项，选中 USB 调试，按照提示操作。我们在命令行里运行 `flutter devices` 可以看到已识别的设备。
 
 在 Android Studio 的设备选择里选择我们连接的真机，点击 Run，手机上确定，然后就可以看到我们在手机上打开了我们的 Flutter App。
-![Flutter Smartisan Device](static/img/2018/07/flutter-smartisan-device.png)
+
+<src="/img/2018/07/flutter-smartisan-device.png" alt="Flutter Smartisan Device" width="50%">

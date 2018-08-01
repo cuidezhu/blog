@@ -37,7 +37,7 @@ export PATH=[PATH_TO_FLUTTER_GIT_DIRECTORY]/flutter/bin:$PATH
 
 首先我们安装 Android Studio，然后去 Android Studio 的 Plugins 下的Browse repositories 里搜索安装 Dart 和 Flutter 这两个插件。
 
-然后我们来创建一个安装模拟器，启动 Android Studio>Tools>AVD Manager 选择 Create Virtual Device，选择一个设备，这里我们选择的是 Pixel 2，点 Next，选择一个系统镜像，我选的是 API 27 的 Oreo，点击 Download，选中我们下载的系统镜像，点 Next，在 Emulated Performance 选项下，选择 Hardware - GLES 2.0 来开启硬件加速，确认配置，点 Finish。
+然后我们来创建一个安装模拟器，启动 Android Studio>Tools>AVD Manager 选择 Create Virtual Device，选择一个设备，这里我们选择的是 Pixel 2 XL，点 Next，选择一个系统镜像，我选的是 API 27 的 Oreo，点击 Download，选中我们下载的系统镜像，点 Next，在 Emulated Performance 选项下，选择 Hardware - GLES 2.0 来开启硬件加速，确认配置，点 Finish。
 
 ## VS Code 开发环境
 

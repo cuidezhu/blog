@@ -37,6 +37,14 @@ export PATH=[PATH_TO_FLUTTER_GIT_DIRECTORY]/flutter/bin:$PATH
 
 首先我们安装 Android Studio，然后去 Android Studio 的 Plugins 下的Browse repositories 里搜索安装 Dart 和 Flutter 这两个插件。
 
+然后我们来创建一个安装模拟器，启动 Android Studio>Tools>AVD Manager 选择 Create Virtual Device，选择一个设备，这里我们选择的是 Pixel 2，点 Next，选择一个系统镜像，我选的是 API 27 的 Oreo，点击 Download，选中我们下载的系统镜像，点 Next。
+
+## VS Code 开发环境
+
+我是用的 VS Code 编辑器，我们需要安装 flutter 这个扩展来获得更好的开发体验，直接在 VS Code 的扩展里搜索 flutter 安装即可。
+
+然后点击 VS Code 的菜单项 `查看>命令面板`，输入 `doctor`，选择 `Flutter: Run Flutter Doctor`，然后弹出 flutter SDK 错误弹窗，我们选择设置路径，一步步选择 `[PATH_TO_FLUTTER_GIT_DIRECTORY]/flutter/bin` 路径即可，然后就可以在 VS Code 集成的终端输出中看到 `flutter doctor` 的执行结果了。
+
 ## 创建新 Flutter 项目
 
 Android Studio 安装完 Dart 和 Flutter 这两个插件后我们重新启动 Android Studio 发现欢迎面板里多了 `Start a new Flutter project` 这个选项，我们可以直接创建 Flutter 项目。
@@ -47,10 +55,6 @@ Android Studio 安装完 Dart 和 Flutter 这两个插件后我们重新启动 A
 flutter create myapp
 ```
 
+在创建好的项目里，`lib/main.dart` 是我们的代码文件。
 
-## VS Code 开发环境
-
-我是用的 VS Code 编辑器，我们需要安装 flutter 这个扩展来获得更好的开发体验，直接在 VS Code 的扩展里搜索 flutter 安装即可。
-
-然后点击 VS Code 的菜单项 `查看>命令面板`，输入 `doctor`，选择 `Flutter: Run Flutter Doctor`，然后弹出 flutter SDK 错误弹窗，我们选择设置路径，一步步选择 `[PATH_TO_FLUTTER_GIT_DIRECTORY]/flutter/bin` 路径即可，然后就可以在 VS Code 集成的终端输出中看到 `flutter doctor` 的执行结果了。
-
+## 启动项目

@@ -27,14 +27,30 @@ export PATH=[PATH_TO_FLUTTER_GIT_DIRECTORY]/flutter/bin:$PATH
 
 运行 `flutter doctor` 查看是否有需要安装的依赖，这条命令检查你的环境然后会把问题列在命令行中，根据提示安装所需依赖即可。安装完了依赖项，再次运行 `flutter doctor` 来确保一切都正常工作。
 
-## iOS 运行环境
+## iOS 设置
 
 首先下载Xcode，可以去 Mac App Store 下载最新版的 Xcode，然后打开模拟器 `open -a Simulator`，在 Flutter 项目的根目录下执行 `flutter run` 即可启动 App。
 
 一般你把 `flutter doctor` 列出的问题按照上面提示的方式解决完，就完成了发布到 iOS 和 Android 设备上的设置，具体可参考官网和 `flutter doctor` 列出的信息。
 
-## 开发环境
+## Android 设置
+
+首先我们安装 Android Studio，然后去 Android Studio 的 Plugins 下的Browse repositories 里搜索安装 Dart 和 Flutter 这两个插件。
+
+## 创建新 Flutter 项目
+
+Android Studio 安装完 Dart 和 Flutter 这两个插件后我们重新启动 Android Studio 发现欢迎面板里多了 `Start a new Flutter project` 这个选项，我们可以直接创建 Flutter 项目。
+
+也可以在终端中，在你想要放置 Flutter 项目的目录执行以下命令来创建新的 Flutter 项目。
+
+```sh
+flutter create myapp
+```
+
+
+## VS Code 开发环境
 
 我是用的 VS Code 编辑器，我们需要安装 flutter 这个扩展来获得更好的开发体验，直接在 VS Code 的扩展里搜索 flutter 安装即可。
 
 然后点击 VS Code 的菜单项 `查看>命令面板`，输入 `doctor`，选择 `Flutter: Run Flutter Doctor`，然后弹出 flutter SDK 错误弹窗，我们选择设置路径，一步步选择 `[PATH_TO_FLUTTER_GIT_DIRECTORY]/flutter/bin` 路径即可，然后就可以在 VS Code 集成的终端输出中看到 `flutter doctor` 的执行结果了。
+

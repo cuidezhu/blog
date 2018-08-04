@@ -81,4 +81,4 @@ npm i babel-preset-es2015 babel-preset-es2015-loose babel-preset-react -D
 "build": "webpack --config build/webpack.config.js"
 ```
 
-在终端里运行 `npm run build` 就可以编译成功编译我们的代码了。
+在终端里运行 `npm run build` 就可以编译成功编译我们的代码了，打包完成的代码会放在根目录下的 `dist` 目录。

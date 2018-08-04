@@ -174,3 +174,11 @@ footer {
 footer > a {
   display: inline-block;
 }
+
+blockquote {
+  border-left: 4px solid #ccc;
+  margin-left: 20px;
+  margin-right: 0;
+  padding-left: 10px;
+  background-color: #f6f8fa;
+}

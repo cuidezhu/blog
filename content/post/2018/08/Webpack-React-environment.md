@@ -7,10 +7,10 @@ slug: "Webpack-React-environment"
 
 新建一个项目的文件夹，打开终端，进入我们新建的文件夹目录，我们使用 `npm init` 来初始化一个 npm 项目，按照提示填写项目相关信息，然后它会根据你填的信息生成一个 `package.json` 文件。
 
-我们的项目需要用到 Webpack 和 React，我们首先安装下这两个包：
+我们的项目需要用到 Webpack 和 React，这里我们用 webpack 的版本 3.9.1，我们首先安装下这两个包：
 
 ```zsh
-npm i webpack react
+npm i webpack@3.9.1 react
 ```
 
 `npm i` 是 `npm install` 的别名，其它 `npm install` 的别名有 `isntall, add`，`npm install` 的后缀的意思可以看 [官方文档](https://docs.npmjs.com/cli/install)：
@@ -26,3 +26,28 @@ npm i webpack react
 > --no-save: Prevents saving to dependencies.
 
 总结就是一句话，`npm install` 默认是把包添加到 package.json 文件的 `dependencies` 里，即会在开发和生产环境中都会用到，而加了 `-D` 就把包添加到 `devDependencies` 里，只会在开发中使用。至于另一个后缀 `-S` 应该是误用或者以往的用法，效果也是和默认一样，包会添加到 `dependencies` 里。
+
+我们在项目跟目录下新建 `build` 文件夹，然后新建 `webpack.config.js` 文件，在这个文件中，我们写我们的 webpack 配置：
+
+```js
+const path = require('path')
+
+module.exports = {
+  entry: {
+    app: path.join(__dirname, '../client/app.js')
+  },
+  output: {
+    filename: '[name].[hash].js',
+    path: path.join(__dirname, '../dist'),
+    publicPath: '/public'
+  },
+  module: {
+    rules: [
+      {
+        test: /.jsx$/,
+        loader: 'babel-loader'
+      }
+    ]
+  }
+}
+```

@@ -39,7 +39,7 @@ module.exports = {
   output: {
     filename: '[name].[hash].js',
     path: path.join(__dirname, '../dist'),
-    publicPath: '/public'
+    publicPath: ''
   },
   module: {
     rules: [
@@ -51,6 +51,8 @@ module.exports = {
   }
 }
 ```
+
+`publicPath` 可以在引用生成的代码时在文件名前面加上 `publicPath` 的配置内容，通常用户设置 CDN 等。
 
 我们用 `babel-loader` 这个 loader 来让 webpack 能处理 JSX：
 

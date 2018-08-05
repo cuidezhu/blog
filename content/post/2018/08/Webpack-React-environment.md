@@ -102,4 +102,4 @@ module.exports = {
 }
 ```
 
-这是我们再 `npm run build` 就会看到 `dist` 目录下生成了 index.html 文件，并且文件内引入了打包后的 JS 文件。
+这时我们再 `npm run build` 就会看到 `dist` 目录下生成了 index.html 文件，并且文件内引入了打包后的 JS 文件。

@@ -82,3 +82,24 @@ npm i babel-preset-es2015 babel-preset-es2015-loose babel-preset-react -D
 ```
 
 在终端里运行 `npm run build` 就可以编译成功编译我们的代码了，打包完成的代码会放在根目录下的 `dist` 目录。
+
+然后我们安装 `html-webpack-plugin` 插件来把我们 Webpack 打包后的 entry 下的所有文件都注入到一个生成的 HTML 页面里面，文件名字路径都是根据 output 的配置拼接而成。
+
+```zsh
+npm i --save-dev html-webpack-plugin
+```
+
+然后在我们的 `webpack.config.js` 文件中加入以下内容：
+
+```js
+const HTMLPlugin = require('html-webpack-plugin')
+
+module.exports = {
+  // ...
+  plugins: [
+    new HTMLPlugin()
+  ]
+}
+```
+
+这是我们再 `npm run build` 就会看到 `dist` 目录下生成了 index.html 文件，并且文件内引入了打包后的 JS 文件。

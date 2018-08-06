@@ -4,3 +4,8 @@ date: 2018-08-05T21:19:21+08:00
 draft: false
 slug: "JavaScript-cross-domain-solution"
 ---
+
+以下情况会出现跨域：
+
+* 协议不同，http://a.com 和 https://a.com
+

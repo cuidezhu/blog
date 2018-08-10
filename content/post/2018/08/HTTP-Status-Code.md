@@ -1,5 +1,5 @@
 ---
-title: "常见的 HTTP 状态吗"
+title: "常见的 HTTP 状态码"
 date: 2018-08-09T22:50:39+08:00
 draft: false
 slug: "HTTP-Status-Code"

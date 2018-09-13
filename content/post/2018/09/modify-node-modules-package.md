@@ -1,5 +1,5 @@
 ---
-title: "修改并发布 node_modules 包"
+title: "修改并发布 npm 包"
 date: 2018-09-13T14:54:58+08:00
 draft: false
 slug: "modify-node-modules-package"

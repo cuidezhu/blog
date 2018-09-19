@@ -40,6 +40,18 @@ body {
   height: 25px;
 }
 
+.blog-post-content h1 {
+  padding-bottom: 0.3em;
+  font-size: 2em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.blog-post-content h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.5em;
+  border-bottom: 1px solid #eaecef;
+}
+
 .list-group, .blog-post-content {
   padding: 0;
   margin: 0;
@@ -64,6 +76,18 @@ body {
   font-size: 100%;
 }
 
+.blog-post-content li {
+  margin-bottom: 16px;
+}
+
+.blog-post-content ul li {
+  list-style-type: disc;
+  margin-bottom: 16px;
+}
+.blog-post-content li ul {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
 .archive-item-link {
   font-size: 16px;
   color: #0366d6;

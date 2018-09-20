@@ -5,7 +5,7 @@ draft: false
 slug: "create-react-app-proxy"
 ---
 
-我们通过 `create-react-app` 新建项目在本地开发时，通常需求请求数据 API，而数据 API 大多数是会遇到跨域问题的，在线上生产环境我们可以通过 Nginx 配置反向代理到我们 build 之后的项目目录，可是在本地应该怎么解决跨域问题了，当然我们在本地也可以配置 Nginx 反向代理了，但是我们的 `create-react-app` 在本地开发时已经开了一个端口启动了一个 devServer 了，所以我们配置 Nginx 反向代理的话就需要再配置一个端口，把这个端口的反向代理到 `create-react-app` 启动的这个端口上，这种方法比较繁琐，而且还可能会遇到问题。
+我们通过 `create-react-app` 新建项目在本地开发时，通常需求请求数据 API，而数据 API 大多数是会遇到跨域问题的，在线上生产环境我们可以通过 Nginx 配置反向代理到我们 build 之后的项目目录，可是在本地应该怎么解决跨域问题了，当然我们在本地也可以配置 Nginx 反向代理了，但是我们的 `create-react-app` 在本地开发时已经开了一个端口启动了一个 devServer 了，所以我们配置 Nginx 反向代理的话就需要再配置一个端口，把这个端口的反向代理到 `create-react-app` 启动的这个端口上，以前的一篇文章 [Nginx 解决本地开发启动 Server 跨域问题](https://ijs.me/2018/08/31/react-nginx-server-cors/) 详细讲了这种方法，这种方法比较繁琐，而且还可能会遇到问题。
 
 `create-react-app` 为我们提供一个可配置的 `proxy` 选项，我们只需要在 `package.json` 文件里加入这个字段并正确配置就可以了。
 

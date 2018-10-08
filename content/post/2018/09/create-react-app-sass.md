@@ -35,6 +35,8 @@ yarn add npm-run-all
 "build-js": "node scripts/build.js",
 ```
 
+`npm-run-all -p`, 的 `-p` 参数表示并行执行任务 --parallel <tasks> - Run a group of tasks in parallel. e.g. `npm-run-all -p foo bar` is similar to `npm run foo & npm run bar`.
+
 如果未执行过 `yarn eject`，则加入下面四条脚本：
 
 ```zsh

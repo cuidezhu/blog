@@ -1,5 +1,5 @@
 ---
-title: "解决 VS Code 终端启动时 nvm 提示 "prefix" option 错误"
+title: "解决 VS Code 终端启动时 nvm 提示 prefix option 错误"
 date: 2018-10-09T11:05:28+08:00
 draft: false
 slug: "VS-Code-Terminal-nvm-complaining-prefix-option"

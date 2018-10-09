@@ -32,7 +32,7 @@ lrwxr-xr-x    1 mac   admin        46  8 29 15:40 npx -> /usr/local/lib/node_mod
 rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
 ```
 
-随后发现终端又报另一个兼容性问题，因为我在使用 nvm 之前用 Homebrew 安装过 no de，所以我们需要删除之前使用 Homebrew 安装的 node：
+随后发现终端又报另一个兼容性问题，因为我在使用 nvm 之前用 Homebrew 安装过 node，所以我们需要删除之前使用 Homebrew 安装的 node：
 
 ```zsh
 brew uninstall --ignore-dependencies node
@@ -40,3 +40,4 @@ brew uninstall --ignore-dependencies node
 
 然后在 VS Code 里启动终端就不会报 "prefix" 相关的错误了。
 
+> 参考文档：[vscode-docs](https://github.com/Microsoft/vscode-docs/blob/master/docs/editor/integrated-terminal.md#why-is-nvm-complaining-about-a-prefix-option-when-the-integrated-terminal-is-launched)

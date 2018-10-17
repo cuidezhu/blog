@@ -1,5 +1,5 @@
 ---
-title: "Go Main Init Function"
+title: "Go 语言的 main 和 init 函数"
 date: 2018-10-17T15:42:29+08:00
 draft: false
 slug: "go-main-init-function"

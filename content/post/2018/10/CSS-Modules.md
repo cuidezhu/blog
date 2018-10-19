@@ -54,3 +54,76 @@ class Button extends Component {
 .Button_error_ax7yz {
   background-color: red;
 }
+
+## 全局作用域
+
+如果我们想要一个全局生效的样式呢？可以使用 `:global`，CSS Modules 允许使用 `:global(.className)` 的语法，声明一个全局规则。凡是这样声明的 class，类名都不会被编译加上文件名和哈希字符串。
+
+```css
+
+/* 定义全局样式 */
+:global(.text) {
+  font-size: 16px;
+}
+
+```
+
+借助于像 SCSS 这样的 CSS 预处理器，我们可以轻松地定义多个全局样式：
+
+```scss
+
+:global {
+  .footer {
+    color: #ccc;
+  }
+  .sider {
+    background: #ebebeb;
+  }
+}
+
+```
+
+
+默认就是相当于给每一个类名添加了 `:local`，以此来实现样式的局部化：
+
+```css
+
+.normal {
+  color: green;
+}
+
+/* 以上与下面等价 */
+:local(.normal) {
+  color: green;
+
+```
+
+## 组合（compose）样式
+
+```css
+
+.baseclassName {
+  color: green;
+  background: red;
+}
+
+.otherClassName {
+  composes: className;
+  color: yellow;
+}
+
+```
+
+这样 `.otherClassName` 这个 class 就会包含 `.baseclassName` 这个 class 的所有样式。
+
+## CSS 命名
+
+我们 `import styles from './App.module.css';` 时，`styles` 的值是一个对象，我们一般通过 `.` 操作符来拿到对象属性的值：
+
+```js
+
+{App: "App_App__3mFxp", App-logo-spin: "App_App-logo-spin__1MXin", App-header: "App_App-header__2SAu8", App-link: "App_App-link__3bOgN"}
+
+```
+
+所以像上面那样的 class 名 App-logo-spin 在 JavaScript 中包含非法的标识符 `-`，所以我们命名 class 名时需要使用小驼峰命名法，类似于 `appLogoSpin`，如果是非法的标识符，我们取属性值的时候可以采用 obj[“propertyName”] 的形式，在这个例子中就应该是 `className={styles["App-header"]}`, 不过我们一般统一为 `.` 来取属性值。

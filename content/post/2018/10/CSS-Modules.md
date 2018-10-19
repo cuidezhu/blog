@@ -5,8 +5,52 @@ draft: false
 slug: "CSS-Modules"
 ---
 
+## CSS 样式问题
+
 在样式开发过程中，有两个问题比较突出：
 
 1. 全局污染 —— CSS 文件中的选择器是全局生效的，不同文件中的同名选择器，根据 build 后生成文件中的先后顺序，后面的样式会将前面的覆盖；
 
 2. 选择器复杂 —— 为了避免上面的问题，我们在编写样式的时候不得不小心翼翼，类名里会带上限制范围的标识，变得越来越长，多人开发时还很容易导致命名风格混乱，一个元素上使用的选择器个数也可能越来越多。
+
+## Create React App 支持 CSS Modules
+
+为了让我们使用 Create React App 创建的项目支持 CSS Modules，我们需要把 CSS 文件的命名中加上 module 类似 [name].module.css，然后实际编译后的类名会被加上一个 hash 值，变成了这样的格式 `[filename]\_[classname]\_\_[hash]`，这保证了它的唯一性。
+
+如果你使用了 SCSS 或者别的预处理器，也需要为相应的预处理器扩展名前面加上 module，类似于 `[name].module.scss` or `[name].module.sass`。
+
+比如我们现在新建一个 `Button.module.css` 文件：
+
+```css
+.error {
+  background-color: red;
+}
+```
+
+然后在组件文件里按照如下方式使用我们定义的样式：
+
+```js
+
+import React, { Component } from 'react';
+import styles from './Button.module.css'; // Import css modules stylesheet as styles
+
+class Button extends Component {
+  render() {
+    // reference as a js object
+    return <button className={styles.error}>Error Button</button>;
+  }
+}
+```
+
+最终组件被编译为：
+
+```js
+<button class="Button_error_ax7yz"></div>
+```
+
+样式文件名也会被编译：
+
+```css
+.Button_error_ax7yz {
+  background-color: red;
+}

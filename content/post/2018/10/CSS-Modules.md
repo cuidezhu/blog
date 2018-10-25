@@ -108,6 +108,8 @@ class Button extends Component {
 
 这样 `.otherClassName` 这个 class 就会包含 `.baseclassName` 这个 class 的所有样式。
 
+注意 `composes: className;` 外只允许有一层父级元素。
+
 ## CSS 命名
 
 我们 `import styles from './App.module.css';` 时，`styles` 的值是一个对象，我们一般通过 `.` 操作符来拿到对象属性的值：

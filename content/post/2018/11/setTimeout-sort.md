@@ -5,4 +5,4 @@ draft: false
 slug: "setTimeout-sort"
 ---
 
-原理：把数组每一项的值当作 setTimeout 的时间参数，根据数值大小延迟不同的时间输出。
+原理：把数组每一项的值当作 setTimeout 的时间参数，根据数值大小延迟不同的时间输出值（或放到新数组里），达到排序目的。

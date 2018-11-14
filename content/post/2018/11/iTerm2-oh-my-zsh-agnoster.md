@@ -104,3 +104,16 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 最终效果如下：
 
 ![iTerm2](/img/2018/11/iTerm2.png)
+
+## 配置 VS Code
+
+
+下面两行分别把 VS Code 集成的终端设为 zsh 和 把字体设为 "Meslo LG S for Powerline"：
+
+
+```json
+"terminal.integrated.shell.osx": "/bin/zsh",
+"terminal.integrated.fontFamily": "Meslo LG S for Powerline"
+```
+
+我们把上面两行加入 VS Code 的 settings.json 然后保存就好了。

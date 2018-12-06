@@ -1,5 +1,5 @@
 ---
-title: "Git Rename Branch"
+title: "Git 重命名分支"
 date: 2018-12-05T19:13:45+08:00
 draft: false
 slug: "git-rename-branch"

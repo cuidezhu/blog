@@ -4,3 +4,5 @@ date: 2019-01-11T23:59:20+08:00
 draft: false
 slug: "Winter-of-Internet"
 ---
+
+任何时候都要学会居安思危。

@@ -12,7 +12,10 @@ slug: "Prettier-Code-formatter"
 ```json
   "editor.formatOnSave": true,
   "prettier.jsxSingleQuote": true,
-  "prettier.semi": false
+  "prettier.semi": false,
+  "prettier.proseWrap": "preserve"
 ```
 
 然后每次保存的时候就会自动格式化代码了，你也可以通过 `CMD + Shift + P -> Format Document` 来手动进行格式化代码。
+
+之前发现 Prettier 在格式化 JSX 代码时，有些 HTML 标签比如 `<p>` 标签里的内容有时会分为两行显示，这样直接把内容换行会导致显示多一个空格的问题，后来经过一番搜索发现 `settings.json` 里加一句 `"prettier.proseWrap": "preserve"` 就好了，意为原本是否换行保持不变。

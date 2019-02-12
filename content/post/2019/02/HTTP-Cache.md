@@ -1,5 +1,5 @@
 ---
-title: "HTTP Cache"
+title: "HTTP 强缓存和协商缓存"
 date: 2019-02-12T15:33:53+08:00
 draft: false
 slug: "HTTP-Cache"

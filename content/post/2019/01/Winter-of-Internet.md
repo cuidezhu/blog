@@ -11,11 +11,11 @@ slug: "Winter-of-Internet"
 
 下图是百度指数 2010-12-27 ~ 2019-01-07 “裁员”一词的搜索指数：
 
-![百度指数](/img/2019/01/caiyuan-baiduzs.jpg)
+![百度指数](http://static.intj.top/caiyuan-baiduzs.jpg)
 
 下图是 Google Trends 2004 年至今“裁员”一词的热度：
 
-![Google Trends](/img/2019/01/caiyuan-googletr.jpg)
+![Google Trends](http://static.intj.top/caiyuan-googletr.jpg)
 
 从 Google Trends 可以看出最近这波裁员热度目前尚未超过 2008 年那次，但是恐慌容易传染，看着一些企业裁员了，本来不需要裁员的那些公司，有的也跟风裁员了。大家对未来的信心不足，行业容易像多米诺骨牌似的发生崩塌。
 
@@ -26,4 +26,3 @@ slug: "Winter-of-Internet"
 任何时候都要学会居安思危。
 
 互联网无惧泡沫，任何一次泡沫破裂，推到重来，都意味着巨大的机遇。
-

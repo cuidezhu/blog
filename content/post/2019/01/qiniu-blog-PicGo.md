@@ -79,6 +79,6 @@ slug: "qiniu-blog-PicGo"
 
 然后我们测试一个图片看看是否成功，把一张图片拖动到桌面状态栏的 PicGo 的 Logo 图标上，或者拖动到 PicGo 详细窗口的上传区，我们上传一个图片，发现上传成功了，我们在详细窗口的上传区中的链接格式中点击 Markdown 就可以得到 Markdown 格式的网址了。但是我们发现我们的图片路径在域名的根路径下，比如：`http://cdn.xxx.com/a.jpg`，经查阅资料得知，七牛云存储不支持目录，我们没有办法添加目录更有效的管理文件，所以请注意不要上传名字相同的文件。
 
-七牛云有提示：路径前缀可以用来分类文件，例如： image/jpg/your-file-name.jpg。但经过实测，上传后七牛云会自动把 `/` 改为 ':'，很是困扰，另参考文档 [如何在空间下创建文件夹？](https://developer.qiniu.com/kodo/kb/1705/how-to-create-the-folder-under-the-space)和[如何避免用户上传同名文件](https://developer.qiniu.com//kodo/kb/1365/how-to-avoid-the-users-to-upload-files-with-the-same-key)只好用日期来命名图片方便管理啦，我们截图时可以用微信截图，文件名自动就是当前时间戳格式。
+七牛云有提示：路径前缀可以用来分类文件，例如： image/jpg/your-file-name.jpg。但经过实测，上传后七牛云会自动把 `/` 改为 ':'，很是困扰，另参考文档 [如何在空间下创建文件夹？](https://developer.qiniu.com/kodo/kb/1705/how-to-create-the-folder-under-the-space)和 [如何避免用户上传同名文件](https://developer.qiniu.com//kodo/kb/1365/how-to-avoid-the-users-to-upload-files-with-the-same-key)。只好用日期来命名图片方便管理啦，我们截图时可以用微信截图，文件名自动就是当前时间戳格式。
 
 好了，我们已经配置好方便的把图片上传到七牛云并且使用 Markdown 格式把图片插入到文章了，尽情的享受网站快到飞起吧。

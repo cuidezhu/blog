@@ -25,6 +25,8 @@ slug: "qiniu-blog-PicGo"
 
 首先我们在对象存储栏目里新建一个存储空间，存储区域根据你的需要选一个，访问控制选为公开空间。
 
+![新建存储空间](http://static.intj.top/1550037887368.jpg)
+
 > 公开空间，可通过文件对象的 URL 直接访问。如果要使用七牛云存储的镜像存储功能，请设置空间的属性为公有。
 >
 > 私有空间，文件对象的访问则必须获得拥有者的授权才能访问。
@@ -39,7 +41,9 @@ slug: "qiniu-blog-PicGo"
 
 在绑定域名页加速域名字段填写一个你已备案的域名的二级域名，比如 `cdn.xxx.com`，覆盖范围我选了全球。
 
-然后会提示你：
+![创建域名](http://static.intj.top/1550026052738.jpg)
+
+点击创建然后会提示你：
 
 > 加速域名 cdn.xxx.com 添加成功！配置部署中。
 > 需要到域名解析服务商完成 CNAME 绑定，绑定后加速服务正式生效。[如何配置 CNAME](https://developer.qiniu.com/fusion/kb/1322/how-to-configure-cname-domain-name)
@@ -47,7 +51,11 @@ slug: "qiniu-blog-PicGo"
 
 我们去我们购买域名的服务提供商控制台的域名解析里添加解析记录：
 
+![CNAME 绑定](http://static.intj.top/1550026320275.jpg)
+
 添加好 CNAME 记录后，我们去七牛云的融合 CDN -> 域名管理可以看到我们绑定的域名，现在状态为处理中，一般 10 分钟左右就成功了，等域名状态变为成功后域名就可以使用了。
+
+![域名管理](http://static.intj.top/1550026506784.jpg)
 
 ## PicGo
 
@@ -59,10 +67,18 @@ slug: "qiniu-blog-PicGo"
 
 ## PicGo 绑定七牛图床
 
-以上的前置工作都做完了，然后我们打开 PicGo 的详细窗口，点击图床设置，选择七牛图床，然后会让我们填写一些密钥信息。我们打开七牛云的个人中心 -> 密钥管理，然后我们可以看到一些密钥信息，把 AccessKey/SecretKey 复制到 PicGo 中，设定访问网址就是我们已备案的域名，我们应该填之前在域名解析时设置的二级域名，注意添加 `http://` 前缀。
+以上的前置工作都做完了，然后我们打开 PicGo 的详细窗口，点击图床设置，选择七牛图床，然后会让我们填写一些密钥信息。我们打开七牛云的个人中心 -> 密钥管理，然后我们可以看到一些密钥信息。
+
+![密钥管理](http://static.intj.top/1550027375039.jpg)
+
+把 AccessKey/SecretKey 复制到 PicGo 中，设定访问网址就是我们已备案的域名，我们应该填之前在域名解析时设置的二级域名，注意添加 `http://` 前缀。
+
+![图床设置](http://static.intj.top/1550037972134.jpg)
 
 在 PicGo 中填好信息后，我们点击确定，然后点击设为默认图床，PicGo 提示设置成功。
 
 然后我们测试一个图片看看是否成功，把一张图片拖动到桌面状态栏的 PicGo 的 Logo 图标上，或者拖动到 PicGo 详细窗口的上传区，我们上传一个图片，发现上传成功了，我们在详细窗口的上传区中的链接格式中点击 Markdown 就可以得到 Markdown 格式的网址了。但是我们发现我们的图片路径在域名的根路径下，比如：`http://cdn.xxx.com/a.jpg`，经查阅资料得知，七牛云存储不支持目录，我们没有办法添加目录更有效的管理文件，所以请注意不要上传名字相同的文件。
 
-七牛云有提示：路径前缀可以用来分类文件，例如： image/jpg/your-file-name.jpg。但经过实测，上传后七牛云会自动把 `/` 改为 ':'，很是困扰，另参考文档 [如何在空间下创建文件夹？](https://developer.qiniu.com/kodo/kb/1705/how-to-create-the-folder-under-the-space)和[如何避免用户上传同名文件](https://developer.qiniu.com//kodo/kb/1365/how-to-avoid-the-users-to-upload-files-with-the-same-key)只好用日期来命名图片方便管理啦，我们截图时可以用微信截图，文件名自动就是日期时间格式。
+七牛云有提示：路径前缀可以用来分类文件，例如： image/jpg/your-file-name.jpg。但经过实测，上传后七牛云会自动把 `/` 改为 ':'，很是困扰，另参考文档 [如何在空间下创建文件夹？](https://developer.qiniu.com/kodo/kb/1705/how-to-create-the-folder-under-the-space)和[如何避免用户上传同名文件](https://developer.qiniu.com//kodo/kb/1365/how-to-avoid-the-users-to-upload-files-with-the-same-key)只好用日期来命名图片方便管理啦，我们截图时可以用微信截图，文件名自动就是当前时间戳格式。
+
+好了，我们已经配置好方便的把图片上传到七牛云并且使用 Markdown 格式把图片插入到文章了，尽情的享受网站快到飞起吧。

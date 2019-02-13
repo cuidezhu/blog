@@ -81,4 +81,7 @@ slug: "qiniu-blog-PicGo"
 
 七牛云有提示：路径前缀可以用来分类文件，例如： image/jpg/your-file-name.jpg。但经过实测，上传后七牛云会自动把 `/` 改为 ':'，很是困扰，另参考文档 [如何在空间下创建文件夹？](https://developer.qiniu.com/kodo/kb/1705/how-to-create-the-folder-under-the-space)和 [如何避免用户上传同名文件](https://developer.qiniu.com//kodo/kb/1365/how-to-avoid-the-users-to-upload-files-with-the-same-key)。只好用日期来命名图片方便管理啦，我们截图时可以用微信截图，文件名自动就是当前时间戳格式。
 
+发现 PicGo 的设置中有个时间戳重命名的选项，我们把这个选项打开，就能自动地把文件重命名为 日期时间戳格式了，类似于
+`20190213185010.jpg`。
+
 好了，我们已经配置好方便的把图片上传到七牛云并且使用 Markdown 格式把图片插入到文章了，尽情的享受网站快到飞起吧。

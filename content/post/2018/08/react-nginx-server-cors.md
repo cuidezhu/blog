@@ -22,5 +22,4 @@ server {
 
 这样我们平时开发就访问 `http://localhost:8001/` 来查看我们的项目。
 
-
-当我们使用 webpack 或者 webpack 基础上构建的脚手架时，更好的办法是使用 `proxy` 字段来在本地解决 API 跨域的问题，比如我的另一篇文章 [Create React App 通过 Proxy 在本地跨域请求 API](https://ijs.me/2018/09/20/create-react-app-proxy/) 介绍了使用 create-react-app 这个使用了 webpack 的脚手架配置 API 代理的方法。
+当我们使用 webpack 或者 webpack 基础上构建的脚手架时，更好的办法是使用 `proxy` 字段来在本地解决 API 跨域的问题，比如我的另一篇文章 [Create React App 通过 Proxy 在本地跨域请求 API](http://ijs.me/2018/09/20/create-react-app-proxy/) 介绍了使用 create-react-app 这个使用了 webpack 的脚手架配置 API 代理的方法。

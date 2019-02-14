@@ -7,11 +7,11 @@ slug: "Flutter-getting-started-tutorial"
 
 Flutter 是谷歌推出的一款开发移动端 App 的框架，支持 Android，iOS，和谷歌未来的新系统 Fuchsia。Flutter 解决了 React Native 的性能问题，现在学习 Flutter 正当其时，用一套代码即可支持多平台应用，为我们带来了开发效率的极大提升。
 
-Flutter 是用 Dart 语言写的，坊间相传 Dart 开发组就在 Flutter 团队旁边，所以 Flutter 团队为了方便才用 Dart 的，其实主要是因为 Dart 语言的高性能，Dart 支持即时编译（just-in-time compilation）和预先编译（ahead-of-time Compilation），即时编译使 Flutter 能在 App 运行时直接重新编译，热加载（Hot Reloading）带来了开发效率的提高；预先编译意味着你的 App 使用的库和函数等直接编译为原生的 ARM 代码，这时发布版的 App 运行效率更高和可预测，  所以 Dart 非常适合移动开发。而且 Dart 有静态类型，随着项目规模的增大，可以帮助你更好的追踪 Bug 和管理代码。
+Flutter 是用 Dart 语言写的，坊间相传 Dart 开发组就在 Flutter 团队旁边，所以 Flutter 团队为了方便才用 Dart 的，其实主要是因为 Dart 语言的高性能，Dart 支持即时编译（just-in-time compilation）和预先编译（ahead-of-time Compilation），即时编译使 Flutter 能在 App 运行时直接重新编译，热加载（Hot Reloading）带来了开发效率的提高；预先编译意味着你的 App 使用的库和函数等直接编译为原生的 ARM 代码，这时发布版的 App 运行效率更高和可预测， 所以 Dart 非常适合移动开发。而且 Dart 有静态类型，随着项目规模的增大，可以帮助你更好的追踪 Bug 和管理代码。
 
 ## 安装
 
-Dart SDK 与 Flutter 捆绑在一起，不需要单独安装Dart。我本机的系统是 macOS，如果你是别的系统，可以去官网查看安装方法。
+Dart SDK 与 Flutter 捆绑在一起，不需要单独安装 Dart。我本机的系统是 macOS，如果你是别的系统，可以去官网查看安装方法。
 
 首先我们去[官网](https://flutter.io/setup-macos/)下载最新的安装包，当前是 v0.5.1-beta 版，然后解压到你想要的文件夹中，我是解压到了自己的家目录 `~` 下。
 
@@ -29,13 +29,13 @@ export PATH=[PATH_TO_FLUTTER_GIT_DIRECTORY]/flutter/bin:$PATH
 
 ## iOS 设置
 
-首先下载Xcode，可以去 Mac App Store 下载最新版的 Xcode，然后打开模拟器 `open -a Simulator`，在 Flutter 项目的根目录下执行 `flutter run` 即可启动 App。
+首先下载 Xcode，可以去 Mac App Store 下载最新版的 Xcode，然后打开模拟器 `open -a Simulator`，在 Flutter 项目的根目录下执行 `flutter run` 即可启动 App。
 
 一般你把 `flutter doctor` 列出的问题按照上面提示的方式解决完，就完成了发布到 iOS 和 Android 设备上的设置，具体可参考官网和 `flutter doctor` 列出的信息。
 
 ## Android 设置
 
-首先我们安装 Android Studio，然后去 Android Studio 的 Plugins 下的Browse repositories 里搜索安装 Dart 和 Flutter 这两个插件。
+首先我们安装 Android Studio，然后去 Android Studio 的 Plugins 下的 Browse repositories 里搜索安装 Dart 和 Flutter 这两个插件。
 
 然后我们来创建一个安装模拟器，启动 Android Studio>Tools>AVD Manager 选择 Create Virtual Device，选择一个设备，这里我们选择的是 Pixel 2 XL，点 Next，选择一个系统镜像，我选的是 API 27 的 Oreo，点击 Download，选中我们下载的系统镜像，点 Next，在 Emulated Performance 选项下，选择 Hardware - GLES 2.0 来开启硬件加速，确认配置，点 Finish。
 
@@ -61,14 +61,14 @@ flutter create myapp
 
 我们在 Android Studio 里打开我们创建的项目，然后选择一个我们之前创建的模拟器，启动完成我们就可以看到模拟器进入到手机的 Home 屏幕。然后我们点击 Android Studio 工具栏里的绿色的 Run 按钮，等待片刻，就可以在模拟器中启动我们的 Flutter 项目了。
 
-<img src="/img/2018/07/flutter-android-emulator-demo.jpg" alt="flutter start demo" width="50%">
+<img src="http://static.intj.top/20190214150805.jpg" alt="flutter start demo" width="50%">
 
 你可以修改 `lib/main.dart` 文件内容，然后保存，可以看到模拟器里的 App 也随之更新了，这就是 Flutter 带来的热加载。
 
 ## Android 真机调试
 
-我这里使用的是坚果3，目前安装的最新的 Smartisan os v6.0.2.2，基于 Android 7.1.2定制，用手机数据线把手机和电脑连接。我们到设置->关于手机，点击软件版本 7 次左右直至开发者模式开启为止。然后退回上一层菜单，点击全局高级设置，滑到底部可以看到开发者选项，进入开发者选项，选中 USB 调试，按照提示操作。我们在命令行里运行 `flutter devices` 可以看到已识别的设备。
+我这里使用的是坚果 3，目前安装的最新的 Smartisan os v6.0.2.2，基于 Android 7.1.2 定制，用手机数据线把手机和电脑连接。我们到设置->关于手机，点击软件版本 7 次左右直至开发者模式开启为止。然后退回上一层菜单，点击全局高级设置，滑到底部可以看到开发者选项，进入开发者选项，选中 USB 调试，按照提示操作。我们在命令行里运行 `flutter devices` 可以看到已识别的设备。
 
 在 Android Studio 的设备选择里选择我们连接的真机，点击 Run，手机上确定，然后就可以看到我们在手机上打开了我们的 Flutter App。
 
-<img src="/img/2018/07/flutter-smartisan-device.png" alt="Flutter Smartisan Device" width="50%">
+<img src="http://static.intj.top/20190214150929.png" alt="Flutter Smartisan Device" width="50%">

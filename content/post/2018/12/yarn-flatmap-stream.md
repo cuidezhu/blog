@@ -17,7 +17,7 @@ error http://registry.npm.taobao.org/flatmap-stream/download/flatmap-stream-0.1.
 yarn why flatmap-stream
 ```
 
-![flatmap-stream](/img/2018/12/flatmap-stream.png)
+![flatmap-stream](http://static.intj.top/20190214151459.png)
 
 可以看到包的依赖顺序为 `npm-run-all#ps-tree#event-stream#flatmap-stream`，最终是`npm-run-all`这个包用到了`flatmap-stream` 这个包，而这个包因某个版本含有病毒被 NPM 官方删除了。所以会导致下载时 404 错误。
 

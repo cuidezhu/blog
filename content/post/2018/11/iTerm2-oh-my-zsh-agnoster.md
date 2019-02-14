@@ -46,7 +46,7 @@ agnoster 主题依赖于 [Solarized](https://ethanschoonover.com/solarized/) 配
 
 ### 安装 Solarized 配色
 
-首先我们来安装 [Solarized](https://ethanschoonover.com/solarized/) 配色方案，先去 [Solarized 官网](https://ethanschoonover.com/solarized/) 把配色文件下载下来，然后解压下载下来的文件夹得到 solarized 文件夹，打开这个文件夹后找到 iterm2-colors-solarized 文件夹打开，双击 Solarized Dark.itermcolors 文件即可安装深色主题的配色方案，然后进入iTerm2 -> Preferences -> Profiles -> Colors -> Color Presets 选择 Solarized Dark 即可。
+首先我们来安装 [Solarized](https://ethanschoonover.com/solarized/) 配色方案，先去 [Solarized 官网](https://ethanschoonover.com/solarized/) 把配色文件下载下来，然后解压下载下来的文件夹得到 solarized 文件夹，打开这个文件夹后找到 iterm2-colors-solarized 文件夹打开，双击 Solarized Dark.itermcolors 文件即可安装深色主题的配色方案，然后进入 iTerm2 -> Preferences -> Profiles -> Colors -> Color Presets 选择 Solarized Dark 即可。
 
 ### 安装 Powerline fonts
 
@@ -63,7 +63,7 @@ cd fonts
 ./install.sh
 ```
 
-安装好字体之后我们来设置 iTerm2 的字体，进入 iTerm2 -> Preferences -> Profiles -> Text，在 Font 区域点击 Change Font 按钮，然后找到并选中 Meslo LG S for Powerline字体，字体大小也可以改为 13 号字体，个人感觉 13 号字体比 12 号字体更舒服。
+安装好字体之后我们来设置 iTerm2 的字体，进入 iTerm2 -> Preferences -> Profiles -> Text，在 Font 区域点击 Change Font 按钮，然后找到并选中 Meslo LG S for Powerline 字体，字体大小也可以改为 13 号字体，个人感觉 13 号字体比 12 号字体更舒服。
 
 ### 安装 agnoster 主题
 
@@ -103,13 +103,11 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 最终效果如下：
 
-![iTerm2](/img/2018/11/iTerm2.png)
+![iTerm2](http://static.intj.top/20190214151408.png)
 
 ## 配置 VS Code
 
-
 下面两行分别把 VS Code 集成的终端设为 zsh 和 把字体设为 "Meslo LG S for Powerline"：
-
 
 ```json
 "terminal.integrated.shell.osx": "/bin/zsh",

@@ -181,7 +181,7 @@ const element = {
 
 React 只会对同一个层级的元素进行对比，即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较。这样只需要对树进行一次遍历，便能完成整个 DOM 树的比较。
 
-![react-dom-diff](http://static.intj.top/20190214150929.png)
+![react-dom-diff](http://static.intj.top/20190214151006.png)
 
 React 的 diff 算法比较复杂，在源码的 `react/packages/react-reconciler/` 目录下可以看到整套调和的源码。
 

@@ -48,4 +48,8 @@ class MainPage extends Component {
     )
   }
 }
+
+const WrappedMainPage = Form.create()(MainPage)
+
+export default WrappedMainPage
 ```

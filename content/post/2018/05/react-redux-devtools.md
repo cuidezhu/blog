@@ -7,7 +7,7 @@ slug: "React-Redux-Devtools"
 
 用 Redux 配合 React 开发项目时遇到一个奇怪的问题，项目只能在 Chrome 浏览器下正确运行，其它的浏览器都会报如下错误：`TypeError: undefined is not an object (evaluating 'b.apply')`
 
-![redux-devtools-error](http://static.intj.top/20190214145549.png)
+![redux-devtools-error](https://static.intj.top/20190214145549.png)
 
 猜测可能是由 Redux 引起的，于是搜索一番，找到了这个 [Github Issues](https://github.com/reduxjs/redux/issues/2033), 原来是因为只有我的 Chrome 浏览器装了 Redux DevTools 这个插件，而其它浏览器都没装，所以下面的代码会报错，
 

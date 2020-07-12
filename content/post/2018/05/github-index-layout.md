@@ -13,7 +13,7 @@ GitHub 首页的改版好蛋疼，原先的右栏换成了左栏，左栏换成�
 
 下载好 Stylish 后，点插件图标，然后点右上角的菜单图标，新建样式，
 
-![tampermonkey](http://static.intj.top/20190214145759.png)
+![tampermonkey](https://static.intj.top/20190214145759.png)
 
 然后把下面这行 css 复制到代码部分，
 
@@ -25,13 +25,13 @@ GitHub 首页的改版好蛋疼，原先的右栏换成了左栏，左栏换成�
 
 底部应用对象选择：与该正则表达式匹配的网址，input 框里填入 `https://github.com/(orgs/.*|$)` 然后点保存就好了。
 
-![tampermonkey](http://static.intj.top/20190214145717.png)
+![tampermonkey](https://static.intj.top/20190214145717.png)
 
 ## 旧方法
 
 首先我是用的 Chrome 浏览器，下载 [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) ,Tampermonkey 也有其它浏览器版本，可以去 [官网](https://tampermonkey.net/) 下载你使用的浏览器对应版本。然后打开 GitHub 首页，点击插件图标，点添加新脚本。
 
-![tampermonkey](http://static.intj.top/20190214145933.png)
+![tampermonkey](https://static.intj.top/20190214145933.png)
 
 在新打开的页面中，添加下面一行代码：
 

@@ -9,7 +9,7 @@ slug: "React-Source-Code-Analysis"
 
 我们现在一般使用 JSX 来写 React 代码，实际上我们的 JSX 最终会把编译成普通的 JavaScript 代码，我们可以在 [Babel](https://babeljs.io/repl) 里看下转化后的代码：
 
-![babel-jsx](http://static.intj.top/20190214150708.png)
+![babel-jsx](https://static.intj.top/20190214150708.png)
 
 我们可以看到经过 Babel 编译后，React 实际上是调用 `createElement()` 函数 来创建元素的。
 
@@ -181,7 +181,7 @@ const element = {
 
 React 只会对同一个层级的元素进行对比，即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较。这样只需要对树进行一次遍历，便能完成整个 DOM 树的比较。
 
-![react-dom-diff](http://static.intj.top/20190214151006.png)
+![react-dom-diff](https://static.intj.top/20190214151006.png)
 
 React 的 diff 算法比较复杂，在源码的 `react/packages/react-reconciler/` 目录下可以看到整套调和的源码。
 

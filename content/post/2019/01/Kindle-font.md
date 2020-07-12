@@ -35,4 +35,4 @@ slug: "Kindle-font"
 
 思源宋体在 Kindle 上的显示效果如下：
 
-![思源宋体显示效果](http://static.intj.top//20190501231811.png)
+![思源宋体显示效果](https://static.intj.top//20190501231811.png)

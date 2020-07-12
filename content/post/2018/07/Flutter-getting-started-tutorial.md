@@ -61,7 +61,7 @@ flutter create myapp
 
 我们在 Android Studio 里打开我们创建的项目，然后选择一个我们之前创建的模拟器，启动完成我们就可以看到模拟器进入到手机的 Home 屏幕。然后我们点击 Android Studio 工具栏里的绿色的 Run 按钮，等待片刻，就可以在模拟器中启动我们的 Flutter 项目了。
 
-<img src="http://static.intj.top/20190214150805.jpg" alt="flutter start demo" width="50%">
+<img src="https://static.intj.top/20190214150805.jpg" alt="flutter start demo" width="50%">
 
 你可以修改 `lib/main.dart` 文件内容，然后保存，可以看到模拟器里的 App 也随之更新了，这就是 Flutter 带来的热加载。
 
@@ -71,4 +71,4 @@ flutter create myapp
 
 在 Android Studio 的设备选择里选择我们连接的真机，点击 Run，手机上确定，然后就可以看到我们在手机上打开了我们的 Flutter App。
 
-<img src="http://static.intj.top/20190214150929.png" alt="Flutter Smartisan Device" width="50%">
+<img src="https://static.intj.top/20190214150929.png" alt="Flutter Smartisan Device" width="50%">

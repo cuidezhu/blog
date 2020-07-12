@@ -25,7 +25,7 @@ slug: "qiniu-blog-PicGo"
 
 首先我们在对象存储栏目里新建一个存储空间，存储区域根据你的需要选一个，访问控制选为公开空间。
 
-![新建存储空间](http://static.intj.top/1550037887368.jpg)
+![新建存储空间](https://static.intj.top/1550037887368.jpg)
 
 > 公开空间，可通过文件对象的 URL 直接访问。如果要使用七牛云存储的镜像存储功能，请设置空间的属性为公有。
 >
@@ -41,7 +41,7 @@ slug: "qiniu-blog-PicGo"
 
 在绑定域名页加速域名字段填写一个你已备案的域名的二级域名，比如 `cdn.xxx.com`，覆盖范围我选了全球。
 
-![创建域名](http://static.intj.top/1550026052738.jpg)
+![创建域名](https://static.intj.top/1550026052738.jpg)
 
 点击创建然后会提示你：
 
@@ -51,11 +51,11 @@ slug: "qiniu-blog-PicGo"
 
 我们去我们购买域名的服务提供商控制台的域名解析里添加解析记录：
 
-![CNAME 绑定](http://static.intj.top/1550026320275.jpg)
+![CNAME 绑定](https://static.intj.top/1550026320275.jpg)
 
 添加好 CNAME 记录后，我们去七牛云的融合 CDN -> 域名管理可以看到我们绑定的域名，现在状态为处理中，一般 10 分钟左右就成功了，等域名状态变为成功后域名就可以使用了。
 
-![域名管理](http://static.intj.top/1550026506784.jpg)
+![域名管理](https://static.intj.top/1550026506784.jpg)
 
 ## PicGo
 
@@ -69,11 +69,11 @@ slug: "qiniu-blog-PicGo"
 
 以上的前置工作都做完了，然后我们打开 PicGo 的详细窗口，点击图床设置，选择七牛图床，然后会让我们填写一些密钥信息。我们打开七牛云的个人中心 -> 密钥管理，然后我们可以看到一些密钥信息。
 
-![密钥管理](http://static.intj.top/1550027375039.jpg)
+![密钥管理](https://static.intj.top/1550027375039.jpg)
 
 把 AccessKey/SecretKey 复制到 PicGo 中，设定访问网址就是我们已备案的域名，我们应该填之前在域名解析时设置的二级域名，注意添加 `http://` 前缀。
 
-![图床设置](http://static.intj.top/1550037972134.jpg)
+![图床设置](https://static.intj.top/1550037972134.jpg)
 
 在 PicGo 中填好信息后，我们点击确定，然后点击设为默认图床，PicGo 提示设置成功。
 

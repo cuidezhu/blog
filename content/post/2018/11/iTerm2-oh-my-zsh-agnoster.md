@@ -103,7 +103,7 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 最终效果如下：
 
-![iTerm2](http://static.intj.top/20190214151408.png)
+![iTerm2](https://static.intj.top/20190214151408.png)
 
 ## 配置 VS Code
 

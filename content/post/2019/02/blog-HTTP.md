@@ -1,5 +1,5 @@
 ---
-title: "博客切回 HTTP 访问"
+title: "博客切回 HTTP 访问（已重新切回 HTTPS）"
 date: 2019-02-14T11:53:10+08:00
 draft: false
 slug: "blog-HTTP"
@@ -12,3 +12,7 @@ slug: "blog-HTTP"
 所以为了方便，我把网站取消了 Enforce HTTPS，使用 HTTPS 如果是自己的证书还要担心证书到期问题，用 HTTP 访问网站更方便。
 
 经过实测，我们在博客文章里做的一些网站站内的一些内链，原先为 HTTPS 开头的，也需要改为 HTTP，否则该文章会自动用 HTTPS 访问，引用的一些第三方网站的 HTTPS URL 则不受影响。
+
+## 2020 年 8 月最新更新：已重新切回 HTTPS
+
+HTTPS 是大势所趋，Chrome 浏览器针对 HTTP 网址已提示不安全。所以为图床购买了 HTTPS 流量。

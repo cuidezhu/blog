@@ -136,9 +136,79 @@ data.info.address = '上海'    // 深度监听
 data.nums.push(4)   // 监听数组
 ```
 
-
 #### Object.defineProperty() 的一些缺点
 
 无法监听新增属性/删除属性（需要Vue.set Vue.delete）
 
 Vue 3.0 启用 Proxy 来实现响应式，但是 Proxy 有兼容性问题，且无法 polyfill，IE 11 不支持 Proxy，所以 Vue 3.0 可能会出现一个兼容 IE 11 的版本，把 Proxy 丢掉，还原到 Object.defineProperty()。
+
+## 虚拟 DOM (Virtual DOM) 
+
+vdom 就是用 JS 对象模拟 DOM 结构，然后对比计算出最小的变更，再把差异应用到真正的 DOM 上。
+
+那么如何用 JS 对象模拟 DOM 结构呢？可以看下面一个例子，比如我们有如下的 DOM 结构：
+
+```html
+<div id="div1" class="container">
+  <p>vdom</p>
+  <ul style="font-size: 20px">
+    <li>a</li>
+  </ul>
+</div>
+```
+
+我们就可以这样用 JS 对象来模仿如上的 DOM 结构：
+
+```js
+{
+  tag: 'div',
+  props: {
+    className: 'container',
+    id: 'div1'
+  },
+  children: [
+    {
+      tag: 'p',
+      children: 'vdom'
+    },
+    {
+      tag: 'ul',
+      props: {style: 'font-size: 20px' },
+      children: [
+        {
+          tag: 'li',
+          children: 'a'
+        }
+      ]
+    }
+  ]
+}
+```
+
+## diff 算法
+
+diff 算法即比较两颗树的不同，目前 Vue、React 的 diff 算法通过如下的一些策略，把时间复杂度优化到 O(n)：
+
+* 只对比同一层级，不跨级比较
+* tag 不相同，则直接删掉重建，不再深度比较
+* tag 和 key，两者都相同，则认为是相同节点，不再深度比较
+
+## 模版编译
+
+* 模版编译为 render 函数，这个过程用的 JS 的 with 语法，with语句 扩展一个语句的作用域链。执行 render 函数返回 vnode
+* 基于 vnode 再执行 patch（Vue 中 diff 算法过程就是调用名为patch函数） 和 diff
+* 使用 webpack vue-loader，会在开发环境下编译模版
+
+## Vue 组件渲染和更新过程
+
+### 初次渲染过程
+
+* 解析模版为 render 函数（或在开发环境已完成，vue-loader）
+* 触发响应式，监听 data 属性 getter setter
+* 执行 render 函数，生成 vnode, patch(elem, vnode)
+
+### 更新过程
+
+* 修改 data，触发 setter（此前在 getter 中已被监听）
+* 重新执行 render 函数，生成 newVnode
+* patch(vnode, newVnode) 用 newVnode 来替换老的 vnode

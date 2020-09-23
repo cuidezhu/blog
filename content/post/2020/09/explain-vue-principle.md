@@ -212,3 +212,15 @@ diff 算法即比较两颗树的不同，目前 Vue、React 的 diff 算法通�
 * 修改 data，触发 setter（此前在 getter 中已被监听）
 * 重新执行 render 函数，生成 newVnode
 * patch(vnode, newVnode) 用 newVnode 来替换老的 vnode
+
+## Vue 常见的性能优化方式
+
+* 合理使用 v-show 和 v-if
+* 合理使用 computed
+* v-for 时加 key，以及避免和 v-if 同时使用，因为同时使用时 v-for 的优先级比 v-if 高，导致每次 v-for 时都会重新计算 v-if，造成性能的浪费
+* 自定义事件、DOM 事件及时销毁，避免内存泄漏
+* 合理使用异步组件
+* 合理使用 keep-alive
+* data 层级不要太深，避免深度监听计算次数过多
+* 使用 vue-loader 在开发环境做模版编译（预编译）
+* 使用 SSR

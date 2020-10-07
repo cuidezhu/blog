@@ -140,7 +140,13 @@ data.nums.push(4)   // 监听数组
 
 无法监听新增属性/删除属性（需要Vue.set Vue.delete）
 
-Vue 3.0 启用 Proxy 来实现响应式，但是 Proxy 有兼容性问题，且无法 polyfill，IE 11 不支持 Proxy，所以 Vue 3.0 可能会出现一个兼容 IE 11 的版本，把 Proxy 丢掉，还原到 Object.defineProperty()。
+Vue 3.0 启用 Proxy 来实现响应式，Proxy 实现响应式有以下优点：
+
+* 深度监听，性能更好
+* 可监听新增/删除属性
+* 可监听数组变化
+
+但是 Proxy 有兼容性问题，且无法 polyfill，IE 11 不支持 Proxy，所以 Vue 3.0 可能会出现一个兼容 IE 11 的版本，把 Proxy 丢掉，还原到 Object.defineProperty()。
 
 ## 虚拟 DOM (Virtual DOM) 
 
